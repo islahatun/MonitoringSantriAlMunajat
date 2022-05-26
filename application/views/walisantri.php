@@ -32,7 +32,7 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('AturanObat/add'); ?>" class="btn btn-sm btn-info">
+                                    <a href="<?= base_url('WaliSantri/add'); ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
                                 </div>
@@ -46,9 +46,9 @@
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Aturan Pemakaian Obat</th>
-                                        <th class="col-md-1 text-center">Status</th>
-                                        <th class="col-md-2 text-center">#</th>
+                                        <th>Nama Wali Santri</th>
+                                        <th class="col-md-1 text-center">Kelas</th>
+                                        <th class="col-md-2 text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -90,11 +90,11 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "aturan_obat_name",
+                    "data": "nama_wali_santri",
                     className: "align-middle small"
                 },
                 {
-                    "data": "status",
+                    "data": "id_kelas",
                     className: "align-middle text-center small"
                 },
                 {
@@ -107,17 +107,17 @@
 
 
 
-    $(document).on("click", "#btn_aturan_obat_del", function() {
+    $(document).on("click", "#btn_id_wali_santri_del", function() {
         //debugger
-        var vaturan_obat = $(this).attr("vaturan_obat");
+        var vid_wali_santri = $(this).attr("vid_wali_santri");
 
-        if (!vaturan_obat) {
+        if (!vid_wali_santri) {
             toastr.error('Data gagal disimpan.');
             return
         }
 
         var value = {
-            aturan_obat: vaturan_obat
+            id_wali_santri: vid_wali_santri
         };
 
         Swal.fire({

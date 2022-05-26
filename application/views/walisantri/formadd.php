@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="<?= base_url('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'); ?>">
 <!-- Toastr -->
 <link rel="stylesheet" href="<?= base_url('assets/plugins/toastr/toastr.min.css'); ?>">
+<!-- Select2 -->
+<link rel="stylesheet" href="<?= base_url('assets/plugins/select2/css/select2.min.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css'); ?>">
 <!-- DataTables -->
 <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
@@ -32,15 +35,26 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Aturan Pemakaian Obat</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Wali Santri</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="aturan_obat_name" placeholder="Aturan Pemakaian Obat">
+                                        <input type="text" class="form-control form-control-sm" id="nama_wali_santri" placeholder="Nama Wali Santri">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Kelas</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control form-control-sm" id="id_kelas" name="id_kelas">
+                                            <option></option>
+                                            <?php foreach ($daftarKelas as $dk) : ?>
+                                                <option value="<?= $dk->id_kelas ?>"><?= $dk->nama_kelas ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('AturanObat'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('WaliSantri'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="saveAO()">Save</button>
                             </div>
                         </form>
@@ -60,14 +74,22 @@
 
 <!-- Page specific script -->
 <script>
+    // $(function() {
+    //     $('#id_kelas').select2({
+    //         theme: 'bootstrap4'
+    //     });
+    // });
+
     function saveAO() {
         //debugger
-        PatchURL = _baseurl.concat('/AturanObat/save');
+        PatchURL = _baseurl.concat('/WaliSantri/save');
 
-        var vaturan_obat_name = $("#aturan_obat_name").val();
+        var vnama_wali_santri = $("#nama_wali_santri").val();
+        var vid_kelas = $("#id_kelas").val();
 
         var value = {
-            aturan_obat_name: vaturan_obat_name
+            nama_wali_santri: vnama_wali_santri,
+            id_kelas: vid_kelas
         };
 
         $.ajax({
@@ -88,8 +110,9 @@
         });
     }
 
+
     function clearText() {
-        $("#aturan_obat_name").val("");
+        $("#nama_wali_santri").val("");
     }
 </script>
 <!-- SweetAlert2 -->
