@@ -38,49 +38,31 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <input required type="hidden" class="form-control form-control-sm" id="id_pelayanan" value="<?= $pelayanan->id_pelayanan; ?>">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Jenis Pelayanan</label>
+                                    <input required type="hidden" class="form-control form-control-sm" id="id_prestasi" value="<?= $prestasi->id_prestasi; ?>">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Prestasi</label>
                                     <div class="col-sm-10">
-                                        <input required type="text" class="form-control form-control-sm" id="nama_pelayanan" placeholder="Jenis Pelayanan" value="<?= $pelayanan->nama_pelayanan; ?>">
+                                        <input required type="text" class="form-control form-control-sm" id="prestasi" placeholder="Prestasi" value="<?= $prestasi->prestasi; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Harga</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Point</label>
                                     <div class="col-sm-10">
-                                        <input required type="number" class="form-control form-control-sm" id="harga" placeholder="Harga" value="<?= $pelayanan->harga; ?>">
+                                        <input required type="number" class="form-control form-control-sm" id="point" placeholder="Point" value="<?= $prestasi->point; ?>">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Sarana</label>
+                                <!-- <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Hukuman</label>
                                     <div class="col-sm-10">
-                                        <input required type="number" class="form-control form-control-sm" id="sarana" placeholder="Sarana" value="<?= $pelayanan->sarana; ?>">
+                                        <input required type="text" class="form-control form-control-sm" id="hukuman" placeholder="Hukuman" value="<?= $prestasi->hukuman; ?>">
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Tenaga Kesehatan</label>
-                                    <div class="col-sm-10">
-                                        <input required type="number" class="form-control form-control-sm" id="tenaga_kesehatan" placeholder="Tenaga Kesehatan" value="<?= $pelayanan->tenaga_kesehatan; ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">BPH</label>
-                                    <div class="col-sm-10">
-                                        <input required type="number" class="form-control form-control-sm" id="bph" placeholder="BPH" value="<?= $pelayanan->bph; ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Alat</label>
-                                    <div class="col-sm-10">
-                                        <input required type="number" class="form-control form-control-sm" id="alat" placeholder="Alat" value="<?= $pelayanan->alat; ?>">
-                                    </div>
-                                </div>
-                            </div>
+                                </div> -->
 
-                            <!-- /.card-body -->
-                            <div class="card-footer text-right">
-                                <a href="<?= base_url('Pelayanan'); ?>" type="button" class="btn btn-secondary">Kembali</a>
-                                <button type="button" class="btn btn-primary" onclick="updateSavedi()">Save</button>
-                            </div>
+
+                                <!-- /.card-body -->
+                                <div class="card-footer text-right">
+                                    <a href="<?= base_url('Prestasi'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                    <button type="button" class="btn btn-primary" onclick="updateSavedi()">Save</button>
+                                </div>
                         </form>
                     </div>
                     <!-- /.card -->
@@ -100,23 +82,17 @@
 <script>
     function updateSavedi() {
         debugger
-        PatchURL = _baseurl.concat('/Pelayanan/updateSave');
-        var vnama_pelayanan = $("#nama_pelayanan").val();
-        var vid_pelayanan = $("#id_pelayanan").val();
-        var vharga = $("#harga").val();
-        var valat = $("#alat").val();
-        var vsarana = $("#sarana").val();
-        var vtenaga_kesehatan = $("#tenaga_kesehatan").val();
-        var vbph = $("#bph").val();
+        PatchURL = _baseurl.concat('/Prestasu/updateSave');
+        var vperaturan = $("#prestasi").val();
+        var vid_prestasi = $("#id_prestasi").val();
+        var vpoint = $("#point").val();
+        // var vhukuman = $("#hukuman").val();
 
         var value = {
-            id_pelayanan: vid_pelayanan,
-            nama_pelayanan: vnama_pelayanan,
-            harga: vharga,
-            alat: valat,
-            sarana: vsarana,
-            tenaga_kesehatan: vtenaga_kesehatan,
-            bph: vbph
+            id_prestasi: vid_prestasi,
+            peraturan: vperaturan,
+            point: vpoint,
+            // hukuman: vhukuman,
         };
 
         $.ajax({
@@ -136,12 +112,10 @@
     }
 
     function clearText() {
-        $("#nama_pelayanan").val("");
-        $("#alat").val("");
-        $("#sarana").val("");
-        $("#tenaga_kesehatan").val("");
-        $("#bph").val("");
-        $("#harga").val("");
+        $("#prestasi").val("");
+        $("#point").val("");
+        // $("#hukuman").val("");
+        // 
     }
 </script>
 <!-- SweetAlert2 -->

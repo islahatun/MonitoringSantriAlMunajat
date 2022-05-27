@@ -32,10 +32,10 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Pelayanan/add'); ?>" class="btn btn-sm btn-info mr-1">
+                                    <a href="<?= base_url('Prestasi/add'); ?>" class="btn btn-sm btn-info mr-1">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
-                                    <a href="<?= base_url('MasterTarif') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a>
+                                    <!-- <a href="<?= base_url('MasterTarif') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a> -->
                                 </div>
                             </div>
                         </div>
@@ -47,14 +47,10 @@
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Jenis Pelayanan</th>
-                                        <th class="col-md-1 text-center">Harga</th>
-                                        <th class="col-md-1 text-center">Sarana</th>
-                                        <th class="col-md-1 text-center">Tenaga Kesehatan</th>
-                                        <th class="col-md-1 text-center">Alat</th>
-                                        <th class="col-md-1 text-center">BPH</th>
-                                        <th class="col-md-1 text-center">Status</th>
-                                        <th class="col-md-2 text-center">#</th>
+                                        <th>Prestasi</th>
+                                        <th class="col-md-1 text-center">Point</th>
+                                        <!-- <th class="col-md-1 text-center">Hukuman</th> -->
+                                        <th class="col-md-2 text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -96,31 +92,11 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "nama_pelayanan",
+                    "data": "prestasi",
                     className: "align-middle small"
                 },
                 {
-                    "data": "harga",
-                    className: "align-middle text-center small"
-                },
-                {
-                    "data": "sarana",
-                    className: "align-middle text-center small"
-                },
-                {
-                    "data": "tenaga_kesehatan",
-                    className: "align-middle text-center small"
-                },
-                {
-                    "data": "alat",
-                    className: "align-middle text-center small"
-                },
-                {
-                    "data": "bph",
-                    className: "align-middle text-center small"
-                },
-                {
-                    "data": "status",
+                    "data": "point",
                     className: "align-middle text-center small"
                 },
                 {
@@ -133,17 +109,17 @@
 
 
 
-    $(document).on("click", "#btn_pelayanan_del", function() {
+    $(document).on("click", "#btn_prestasi_del", function() {
         //debugger
-        var vid_pelayanan = $(this).attr("vid_pelayanan");
+        var vid_prestasi = $(this).attr("vid_prestasi");
 
-        if (!vid_pelayanan) {
+        if (!vid_Prestasi) {
             toastr.error('Data gagal disimpan.');
             return
         }
 
         var value = {
-            id_pelayanan: vid_pelayanan
+            id_prestasi: vid_prestasi
         };
 
         Swal.fire({

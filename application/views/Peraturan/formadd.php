@@ -33,45 +33,27 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Jenis Pelayanan</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Peraturan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_pelayanan" placeholder="Jenis Pelayanan">
+                                        <input type="text" class="form-control form-control-sm" id="peraturan" placeholder="Nama Peraturan">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Harga</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Point</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control form-control-sm" id="harga" placeholder="Harga">
+                                        <input type="number" class="form-control form-control-sm" id="point" placeholder="Point">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Sarana</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Hukuman</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control form-control-sm" id="sarana" placeholder="Sarana">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Tenaga Kesehatan</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control form-control-sm" id="tenaga_kesehatan" placeholder="Tenaga Kesehatan">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">BPH</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control form-control-sm" id="bph" placeholder="BPH">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Alat</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control form-control-sm" id="alat" placeholder="Alat">
+                                        <input type="text" class="form-control form-control-sm" id="hukuman" placeholder="Hukuman">
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Pelayanan'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('Peraturan'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="saveDI()">Save</button>
                             </div>
                         </form>
@@ -93,22 +75,16 @@
 <script>
     function saveDI() {
         //debugger
-        PatchURL = _baseurl.concat('/Pelayanan/save');
+        PatchURL = _baseurl.concat('/Peraturan/save');
 
-        var vnama_pelayanan = $("#nama_pelayanan").val();
-        var vharga = $("#harga").val();
-        var valat = $("#alat").val();
-        var vsarana = $("#sarana").val();
-        var vtenaga_kesehatan = $("#tenaga_kesehatan").val();
-        var vbph = $("#bph").val();
+        var vperaturan = $("#peraturan").val();
+        var vpoint = $("#point").val();
+        var vhukuman = $("#hukuman").val();
 
         var value = {
-            nama_pelayanan: vnama_pelayanan,
-            harga: vharga,
-            alat: valat,
-            sarana: vsarana,
-            tenaga_kesehatan: vtenaga_kesehatan,
-            bph: vbph
+            peraturan: vperaturan,
+            point: vpoint,
+            hukuman: vhukuman,
         };
 
         $.ajax({
@@ -130,12 +106,9 @@
     }
 
     function clearText() {
-        $("#nama_pelayanan").val("");
-        $("#alat").val("");
-        $("#sarana").val("");
-        $("#tenaga_kesehatan").val("");
-        $("#bph").val("");
-        $("#harga").val("");
+        $("#peraturan").val("");
+        $("#hukuman").val("");
+        $("#point").val("");
     }
 </script>
 <!-- SweetAlert2 -->
