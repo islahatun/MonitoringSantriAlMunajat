@@ -11,10 +11,10 @@ class MWaliSantri extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
 
-        $this->db->select('*,kelas.nama_kelas');
+        $this->db->select('*,kelas.nama_kelas,kelas.id_kelas');
         $this->db->from("dm_wali_santri");
         $this->db->join('kelas', 'kelas.id_kelas = dm_wali_santri.id_kelas');
-        $this->db->order_by("nama_wali_santri", 'ASC');
+        $this->db->order_by("nama_kelas", 'ASC');
 
         $finalResponse =  $this->db->get()->result();
         return $finalResponse;
