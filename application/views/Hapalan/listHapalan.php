@@ -32,7 +32,7 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Prestasi/add/' . $dp->id_kelas); ?>" class="btn btn-sm btn-info">
+                                    <a href="<?= base_url('Pelanggaran/add/' . $dp->id_kelas); ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
                                 </div>
@@ -51,7 +51,9 @@
                                         <th class="col-md-1">No</th>
                                         <th class="col-md-1 text-center">NISN</th>
                                         <th class="col-md-2 text-center">Nama Santri</th>
-                                        <th class="col-md-1 text-center">Prestasi</th>
+                                        <th class="col-md-1 text-center">juz</th>
+                                        <th class="col-md-2 text-center">Surah</th>
+                                        <th class="col-md-2 text-center">Ayat</th>
                                         <th class="col-md-2 text-center">Tanggal</th>
                                         <th class="col-md-1 text-center">Aksi</th>
                                     </tr>
@@ -81,7 +83,7 @@
     $(document).ready(function() {
         //debugger
         var id_kelas = $("#id_kelas").val();
-        PatchURL = _baseurl.concat('/Prestasi/datalistPrestasi/', id_kelas);
+        PatchURL = _baseurl.concat('/Hapalan/datalistHapalan/', id_kelas);
         $('#ao').DataTable({
             //"order": [2, "asc", 1, "asc"], //Initial no order.
             "destroy": true,
@@ -104,7 +106,15 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "prestasi",
+                    "data": "juz",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "surah",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "ayat",
                     className: "align-middle text-center small"
                 },
                 {

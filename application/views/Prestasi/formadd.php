@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="<?= base_url('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'); ?>">
 <!-- Toastr -->
 <link rel="stylesheet" href="<?= base_url('assets/plugins/toastr/toastr.min.css'); ?>">
+<!-- Select2 -->
+<link rel="stylesheet" href="<?= base_url('assets/plugins/select2/css/select2.min.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css'); ?>">
 <!-- DataTables -->
 <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
@@ -28,33 +31,39 @@
                         <div class="card-header">
                             <h3 class="card-title"><?= $subtitle; ?></h3>
                         </div>
-
-                        <form id="form_pelayanan" class="form-horizontal">
+                        <form id="form_poliklinik" class="form-horizontal">
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Prestasi</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">NISN</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="prestasi" placeholder="Nama Prestasi">
+                                        <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Point</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Santri</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control form-control-sm" id="point" placeholder="Point">
+                                        <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri">
                                     </div>
                                 </div>
-                                <!-- <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Hukuman</label>
+
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">prestasi</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="hukuman" placeholder="Hukuman">
+                                        <input type="text" class="form-control form-control-sm" id="prestasi" placeholder="prestasi">
                                     </div>
-                                </div> -->
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Tanggal</label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control form-control-sm" id="tanggal_submit" value="<?= date('Y-m-d') ?>" placeholder="Tanggal">
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Prestasi'); ?>" type="button" class="btn btn-secondary">Kembali</a>
-                                <button type="button" class="btn btn-primary" onclick="saveDI()">Save</button>
+                                <a href="<?= base_url('Prestasi/listPrestasi/' . $dp->id_kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <button type="button" class="btn btn-primary" onclick="savePrestasi()">Save</button>
                             </div>
                         </form>
                     </div>
@@ -73,18 +82,30 @@
 
 <!-- Page specific script -->
 <script>
-    function saveDI() {
+    // $(function() {
+    //     $('#nama_santri').select2({
+    //         theme: 'bootstrap4'
+    //     });
+    // });
+
+    function savePrestasi() {
         //debugger
         PatchURL = _baseurl.concat('/Prestasi/save');
 
+        var vnisn = $("#nisn").val();
+        var vnama_santri = $("#nama_santri").val();
         var vprestasi = $("#prestasi").val();
-        var vpoint = $("#point").val();
-        // var vhukuman = $("#hukuman").val();
+        var vhukuman = $("#hukuman").val();
+        var vprestasi = $("#prestasi").val();
+        var vtanggal_submit = $("#tanggal_submit").val();
 
         var value = {
+            nisn: vnisn,
+            nama_santri: vnama_santri,
             prestasi: vprestasi,
-            point: vpoint,
-            // hukuman: vhukuman,
+            hukuman: vhukuman,
+            prestasi: vprestasi,
+            tanggal_submit: vtanggal_submit
         };
 
         $.ajax({
@@ -105,10 +126,12 @@
         });
     }
 
+
     function clearText() {
+        $("#nisn").val("");
+        $("#nama_santri").val("");
         $("#prestasi").val("");
-        // $("#hukuman").val("");
-        $("#point").val("");
+        $("#tanggal_submit").val("");
     }
 </script>
 <!-- SweetAlert2 -->

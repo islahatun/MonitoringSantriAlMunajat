@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class MPrestasi extends CI_Model
+class MHapalan extends CI_Model
 {
     public function __construct()
     {
@@ -33,7 +33,7 @@ class MPrestasi extends CI_Model
         return $finalResponse;
     }
 
-    public function datalistPrestasi($id)
+    public function datalistHaplaan($id)
     {
         $this->db->select('*');
         $this->db->from("trans_pelanggaran_vd");
@@ -46,9 +46,9 @@ class MPrestasi extends CI_Model
     public function getById($id)
     {
         $this->db->select('*,kelas.nama_kelas,kelas.id_kelas');
-        $this->db->from("dm_wali_santri");
+        $this->db->from("dm_hapalan");
         $this->db->where("kelas.id_kelas", $id);
-        $this->db->join('kelas', 'kelas.id_kelas = dm_wali_santri.id_kelas');
+        $this->db->join('kelas', 'kelas.id_kelas = dm_hapalan.id_kelas');
         $this->db->order_by("nama_kelas", 'ASC');
 
         $finalResponse =  $this->db->get_where()->row();

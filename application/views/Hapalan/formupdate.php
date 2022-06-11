@@ -37,35 +37,46 @@
                         <form id="form_poliklinik" class="form-horizontal">
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <input type="hidden" value="<?= $ao->id_prestasi ?>">
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">NISN</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN" value="<?= $ao->nisn ?>">
+                                        <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Santri</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri" value="<?= $ao->nama_santri ?>">
+                                        <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Prestasi</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Pelanggaran</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="prestasi" placeholder="Prestasi" value="<?= $ao->prestasi ?>">
+                                        <input type="text" class="form-control form-control-sm" id="pelanggaran" placeholder="Pelanggaran">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Hukuman</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form-control-sm" id="hukuman" placeholder="Hukuman">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Pencatat</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form-control-sm" id="pencatat" placeholder="Pencatat">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Tanggal</label>
                                     <div class="col-sm-10">
-                                        <input type="date" class="form-control form-control-sm" id="tanggal_submit" value="<?= $ao->tanggal_submit ?>" placeholder="Tanggal">
+                                        <input type="date" class="form-control form-control-sm" id="tanggal_submit" value="<?= date('Y-m-d') ?>" placeholder="Tanggal">
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Prestasi/listPrestasi/' . $dp->id_kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('AturanObat'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
@@ -87,17 +98,21 @@
 <script>
     function updateSaveAO() {
         debugger
-        PatchURL = _baseurl.concat('/Prestasi/updateSave');
+        PatchURL = _baseurl.concat('/Pelanggaran/updateSave');
 
         var vnisn = $("#nisn").val();
         var vnama_santri = $("#nama_santri").val();
-        var vprestasi = $("#prestasi").val();
+        var vpelanggaran = $("#pelanggaran").val();
+        var vhukuman = $("#hukuman").val();
+        var vpencatat = $("#pencatat").val();
         var vtanggal_submit = $("#tanggal_submit").val();
 
         var value = {
             nisn: vnisn,
             nama_santri: vnama_santri,
-            prestasi: vprestasi,
+            pelanggaran: vpelanggaran,
+            hukuman: vhukuman,
+            pencatat: vpencatat,
             tanggal_submit: vtanggal_submit
         };
 
@@ -120,8 +135,9 @@
     function clearText() {
         $("#nisn").val("");
         $("#nama_santri").val("");
-        $("#prestasi").val("");
-        $("#tanggal_submit").val("");
+        $("#pencatat").val("");
+        $("#pelanggaran").val("");
+        $("#hukuman").val("");
     }
 </script>
 <!-- SweetAlert2 -->

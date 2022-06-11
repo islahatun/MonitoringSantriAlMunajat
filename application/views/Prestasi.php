@@ -31,26 +31,24 @@
                                 <div class="col-md-6">
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
-                                <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Prestasi/add'); ?>" class="btn btn-sm btn-info mr-1">
+                                <!-- <div class="col-md-6 text-right">
+                                    <a href="<?= base_url('WaliSantri/add'); ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
-                                    <!-- <a href="<?= base_url('MasterTarif') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a> -->
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="pelayanan" class="table w-100 table-bordered table-striped">
+                            <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Prestasi</th>
-                                        <th class="col-md-1 text-center">Point</th>
-                                        <!-- <th class="col-md-1 text-center">Hukuman</th> -->
-                                        <th class="col-md-2 text-center">Aksi</th>
+                                        <th class="col-md-2 text-center">Kelas</th>
+                                        <th class="col-md-2 text-center">Wali Kelas</th>
+                                        <th class="col-md-1 text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,7 +76,7 @@
     $(document).ready(function() {
         //debugger
         PatchURL = _url.concat('/datalist');
-        $('#pelayanan').DataTable({
+        $('#ao').DataTable({
             //"order": [2, "asc", 1, "asc"], //Initial no order.
             "destroy": true,
 
@@ -92,11 +90,11 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "prestasi",
+                    "data": "id_kelas",
                     className: "align-middle small"
                 },
                 {
-                    "data": "point",
+                    "data": "nama_wali_santri",
                     className: "align-middle text-center small"
                 },
                 {
@@ -109,46 +107,46 @@
 
 
 
-    $(document).on("click", "#btn_prestasi_del", function() {
-        //debugger
-        var vid_prestasi = $(this).attr("vid_prestasi");
+    // $(document).on("click", "#btn_id_wali_santri_del", function() {
+    //     //debugger
+    //     var vid_wali_santri = $(this).attr("vid_wali_santri");
 
-        if (!vid_Prestasi) {
-            toastr.error('Data gagal disimpan.');
-            return
-        }
+    //     if (!vid_wali_santri) {
+    //         toastr.error('Data gagal disimpan.');
+    //         return
+    //     }
 
-        var value = {
-            id_prestasi: vid_prestasi
-        };
+    //     var value = {
+    //         id_wali_santri: vid_wali_santri
+    //     };
 
-        Swal.fire({
-            title: 'Apakah anda yakin.?',
-            text: "Data yang dihapus tidak dapat dikembalikan!",
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "POST",
-                    url: _url.concat('/delete'),
-                    data: value,
-                    cache: false,
-                    success: function(data, textStatus, jqXHR) {
-                        debugger
-                        var table = $('#pelayanan').DataTable();
-                        table.ajax.reload();
-                        toastr.success('Data berhasil disimpan.');
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        toastr.error('Data gagal disimpan.');
-                    }
-                });
-            }
-        })
-    });
+    //     Swal.fire({
+    //         title: 'Apakah anda yakin.?',
+    //         text: "Data yang dihapus tidak dapat dikembalikan!",
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, delete it!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             $.ajax({
+    //                 type: "POST",
+    //                 url: _url.concat('/delete'),
+    //                 data: value,
+    //                 cache: false,
+    //                 success: function(data, textStatus, jqXHR) {
+    //                     debugger
+    //                     var table = $('#ao').DataTable();
+    //                     table.ajax.reload();
+    //                     toastr.success('Data berhasil disimpan.');
+    //                 },
+    //                 error: function(jqXHR, textStatus, errorThrown) {
+    //                     toastr.error('Data gagal disimpan.');
+    //                 }
+    //             });
+    //         }
+    //     })
+    // });
 </script>
 <!-- SweetAlert2 -->
 <script src="<?= base_url('assets/plugins/sweetalert2/sweetalert2.min.js'); ?>"></script>

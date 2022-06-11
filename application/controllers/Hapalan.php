@@ -1,23 +1,23 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Prestasi extends CI_Controller
+class Hapalan extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->model('MFunction');
-        $this->load->model('MPrestasi');
+        $this->load->model('MHapalan');
         $this->load->model('MWaliSantri');
         $this->load->model('MKelas');
     }
 
     public function index()
     {
-        $data['title'] = 'Prestasi';
-        $data['subtitle'] = 'Data Prestasi';
+        $data['title'] = 'Hapalan';
+        $data['subtitle'] = 'Data Hapalan';
 
-        $data['content_overview'] = $this->load->view('Prestasi', $data, true);
+        $data['content_overview'] = $this->load->view('Hapalan', $data, true);
         $this->load->view('overview', $data);
     }
 
@@ -34,7 +34,7 @@ class Prestasi extends CI_Controller
                 'id_kelas'    => $ao->nama_kelas,
                 'id_wali_santri'         => $ao->id_wali_santri,
                 'nama_wali_santri'    => $ao->nama_wali_santri,
-                'btn_action'         => "<a href='" . base_url('Prestasi/listPrestasi/' . $ao->id_kelas) . "' class='btn btn-sm btn-outline-success'> 
+                'btn_action'         => "<a href='" . base_url('Hapalan/listHapalan/' . $ao->id_kelas) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
 											"
@@ -45,20 +45,20 @@ class Prestasi extends CI_Controller
         echo json_encode($rtn);
     }
 
-    public function listPrestasi($id)
+    public function listHapalan($id)
     {
-        $data['title'] = 'Prestasi';
+        $data['title'] = 'Hapalan';
 
-        $data['subtitle'] = 'Daftar Data Prestasi';
-        $data['dp'] = $this->MPrestasi->getById($id);
+        $data['subtitle'] = 'Daftar Data Hapalan';
+        $data['dp'] = $this->MHapalan->getById($id);
 
-        $data['content_overview'] = $this->load->view('Prestasi/listPrestasi', $data, true);
+        $data['content_overview'] = $this->load->view('Hapalan/listHapalan', $data, true);
         $this->load->view('overview', $data);
     }
 
-    public function datalistPrestasi($id)
+    public function datalistHapalan($id)
     {
-        $list = $this->MPrestasi->datalistPrestasi($id);
+        $list = $this->MHapalan->datalistHapalan($id);
         $rtn = array();
         $i = 1;
 
@@ -68,12 +68,14 @@ class Prestasi extends CI_Controller
                 'nomor'               => $i,
                 'nisn'         => $ao->nisn,
                 'nama_santri'    => $ao->nama_santri,
-                'prestasi'    => $ao->prestasi,
+                'juz'    => $ao->juz,
+                'surah'    => $ao->surah,
+                'ayat'    => $ao->ayat,
                 'tanggal_submit'    => $ao->tanggal_submit,
-                'btn_action'         => "<a href='" . base_url('Prestasi/update/' . $ao->id_Prestasi) . "' class='btn btn-sm btn-outline-success'> 
+                'btn_action'         => "<a href='" . base_url('Hapalan/update/' . $ao->id_hapalan) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
-											<button type='button' id='btn_id_Prestasi_del' vid_Prestasi=" . $ao->id_Prestasi . " class='btn btn-sm btn-outline-danger'> 
+											<button type='button' id='btn_id_hapalan_del' vid_hapalan=" . $ao->id_hapalan . " class='btn btn-sm btn-outline-danger'> 
 												<i class='fas fa-trash-alt'></i>
 											</button>"
             );
@@ -84,23 +86,23 @@ class Prestasi extends CI_Controller
     }
     public function add($id)
     {
-        $data['title'] = 'Prestasi';
+        $data['title'] = 'Hapalan';
 
-        $data['subtitle'] = 'Tambah Data Prestasi';
-        $data['dp'] = $this->MPrestasi->getById($id);
+        $data['subtitle'] = 'Tambah Data Hapalan';
+        $data['dp'] = $this->MHapalan->getById($id);
 
-        $data['content_overview'] = $this->load->view('Prestasi/formadd', $data, true);
+        $data['content_overview'] = $this->load->view('Hapalan/formadd', $data, true);
         $this->load->view('overview', $data);
     }
 
     public function update($id)
     {
-        $data['title'] = 'Prestasi';
+        $data['title'] = 'Hapalan';
 
-        $data['subtitle'] = 'Tambah Data Prestasi';
-        $data["ao"] = $this->MPrestasi->getById($id);
+        $data['subtitle'] = 'Tambah Data Hapalan';
+        $data["ao"] = $this->MHapalan->getById($id);
 
-        $data['content_overview'] = $this->load->view('Prestasi/formupdate', $data, true);
+        $data['content_overview'] = $this->load->view('Hapalan/formupdate', $data, true);
         $this->load->view('overview', $data);
     }
 
@@ -109,11 +111,13 @@ class Prestasi extends CI_Controller
         $data = array(
             'nisn' => $this->input->post('nisn'),
             'nama_santri' => $this->input->post('nama_santri'),
-            'prestasi' => $this->input->post('prestasi'),
+            'juz' => $this->input->post('juz'),
+            'surah' => $this->input->post('surah'),
+            'ayat' => $this->input->post('ayat'),
             'tanggal_submit' => $this->input->post('tanggal_submit'),
         );
 
-        $this->db->insert("dm_Prestasi", $data);
+        $this->db->insert("dm_hapalan", $data);
     }
 
     function updateSave()
@@ -121,18 +125,20 @@ class Prestasi extends CI_Controller
         $data = array(
             'nisn' => $this->input->post('nisn'),
             'nama_santri' => $this->input->post('nama_santri'),
-            'Prestasi' => $this->input->post('Prestasi'),
+            'juz' => $this->input->post('juz'),
+            'surah' => $this->input->post('surah'),
+            'ayat' => $this->input->post('ayat'),
             'tanggal_submit' => $this->input->post('tanggal_submit'),
         );
 
-        $this->db->where('id_Prestasi', $this->input->post('id_Prestasi'));
-        $this->db->update("dm_Prestasi", $data);
+        $this->db->where('id_hapalan', $this->input->post('id_hapalan'));
+        $this->db->update("dm_hapalan", $data);
     }
 
     public function delete()
     {
 
-        $this->db->where('id_Prestasi', $this->input->post('id_Prestasi'));
-        $this->db->update("dm_Prestasi");
+        $this->db->where('id_hapalan', $this->input->post('id_hapalan'));
+        $this->db->update("dm_hapalan");
     }
 }
