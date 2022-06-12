@@ -33,11 +33,12 @@ class MHapalan extends CI_Model
         return $finalResponse;
     }
 
-    public function datalistHaplaan($id)
+    public function datalistHapalan($id)
     {
-        $this->db->select('*');
-        $this->db->from("trans_pelanggaran_vd");
-        $this->db->where("id_kelas", $id);
+        $this->db->select('*,dm_santri.kelas');
+        $this->db->from("dm_hapalan");
+        $this->db->join("dm_santri","dm_santri.nisn = dm_hapalan.nisn");
+        $this->db->where("dm_santri.kelas", $id);
 
         $finalResponse =  $this->db->get_where()->result();
 
@@ -46,10 +47,20 @@ class MHapalan extends CI_Model
     public function getById($id)
     {
         $this->db->select('*,kelas.nama_kelas,kelas.id_kelas');
-        $this->db->from("dm_hapalan");
+        $this->db->from("dm_wali_santri");
         $this->db->where("kelas.id_kelas", $id);
-        $this->db->join('kelas', 'kelas.id_kelas = dm_hapalan.id_kelas');
+        $this->db->join('kelas', 'kelas.id_kelas = dm_wali_santri.id_kelas');
         $this->db->order_by("nama_kelas", 'ASC');
+
+        $finalResponse =  $this->db->get_where()->row();
+        return $finalResponse;
+    }
+    public function getHapalanById($id)
+    {
+        $this->db->select('*,dm_santri.kelas');
+        $this->db->from("dm_hapalan");
+        $this->db->join("dm_santri","dm_santri.nisn = dm_hapalan.nisn");
+        $this->db->where("dm_hapalan.id_hapalan", $id);
 
         $finalResponse =  $this->db->get_where()->row();
         return $finalResponse;

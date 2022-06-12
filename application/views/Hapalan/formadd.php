@@ -67,7 +67,7 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Tanggal</label>
                                     <div class="col-sm-10">
-                                        <input type="date" class="form-control form-control-sm" id="tanggal_submit" value="<?= date('Y-m-d') ?>" placeholder="Tanggal">
+                                        <input type="date" class="form-control form-control-sm" id="tanggal" value="<?= date('Y-m-d') ?>" placeholder="Tanggal">
                                     </div>
                                 </div>
                             </div>
@@ -101,14 +101,14 @@
 
     function savejuz() {
         //debugger
-        PatchURL = _baseurl.concat('/juz/save');
+        PatchURL = _baseurl.concat('/Hapalan/save');
 
         var vnisn = $("#nisn").val();
         var vnama_santri = $("#nama_santri").val();
         var vjuz = $("#juz").val();
         var vsurah = $("#surah").val();
         var vayat = $("#ayat").val();
-        var vtanggal_submit = $("#tanggal_submit").val();
+        var vtanggal = $("#tanggal").val();
 
         var value = {
             nisn: vnisn,
@@ -116,7 +116,7 @@
             juz: vjuz,
             surah: vsurah,
             ayat: vayat,
-            tanggal_submit: vtanggal_submit
+            tanggal: vtanggal
         };
 
         $.ajax({

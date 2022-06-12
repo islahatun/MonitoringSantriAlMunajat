@@ -71,7 +71,7 @@ class Hapalan extends CI_Controller
                 'juz'    => $ao->juz,
                 'surah'    => $ao->surah,
                 'ayat'    => $ao->ayat,
-                'tanggal_submit'    => $ao->tanggal_submit,
+                'tanggal'    => $ao->tanggal,
                 'btn_action'         => "<a href='" . base_url('Hapalan/update/' . $ao->id_hapalan) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
@@ -99,8 +99,8 @@ class Hapalan extends CI_Controller
     {
         $data['title'] = 'Hapalan';
 
-        $data['subtitle'] = 'Tambah Data Hapalan';
-        $data["ao"] = $this->MHapalan->getById($id);
+        $data['subtitle'] = 'Update Data Hapalan';
+        $data["ao"] = $this->MHapalan->getHapalanById($id);
 
         $data['content_overview'] = $this->load->view('Hapalan/formupdate', $data, true);
         $this->load->view('overview', $data);
@@ -114,7 +114,7 @@ class Hapalan extends CI_Controller
             'juz' => $this->input->post('juz'),
             'surah' => $this->input->post('surah'),
             'ayat' => $this->input->post('ayat'),
-            'tanggal_submit' => $this->input->post('tanggal_submit'),
+            'tanggal' => $this->input->post('tanggal'),
         );
 
         $this->db->insert("dm_hapalan", $data);
@@ -128,7 +128,7 @@ class Hapalan extends CI_Controller
             'juz' => $this->input->post('juz'),
             'surah' => $this->input->post('surah'),
             'ayat' => $this->input->post('ayat'),
-            'tanggal_submit' => $this->input->post('tanggal_submit'),
+            'tanggal' => $this->input->post('tanggal'),
         );
 
         $this->db->where('id_hapalan', $this->input->post('id_hapalan'));
@@ -139,6 +139,6 @@ class Hapalan extends CI_Controller
     {
 
         $this->db->where('id_hapalan', $this->input->post('id_hapalan'));
-        $this->db->update("dm_hapalan");
+        $this->db->delete("dm_hapalan");
     }
 }

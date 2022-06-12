@@ -32,7 +32,7 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Pelanggaran/add/' . $dp->id_kelas); ?>" class="btn btn-sm btn-info">
+                                    <a href="<?= base_url('Hapalan/add/' . $dp->id_kelas); ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
                                 </div>
@@ -43,7 +43,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <form action="">
-                                <input type="hidden" value="<?= $dp->id_kelas ?>">
+                                <input type="hidden" value="<?= $dp->id_kelas ?>" id="id_kelas">
                             </form>
                             <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
@@ -53,9 +53,9 @@
                                         <th class="col-md-2 text-center">Nama Santri</th>
                                         <th class="col-md-1 text-center">juz</th>
                                         <th class="col-md-2 text-center">Surah</th>
-                                        <th class="col-md-2 text-center">Ayat</th>
+                                        <th class="col-md-1 text-center">Ayat</th>
                                         <th class="col-md-2 text-center">Tanggal</th>
-                                        <th class="col-md-1 text-center">Aksi</th>
+                                        <th class="col-md-2 text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -118,7 +118,7 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "tanggal_submit",
+                    "data": "tanggal",
                     className: "align-middle text-center small"
                 },
                 {
@@ -131,17 +131,17 @@
 
 
 
-    $(document).on("click", "#btn_id_wali_santri_del", function() {
+    $(document).on("click", "#btn_id_hapalan_del", function() {
         //debugger
-        var vid_wali_santri = $(this).attr("vid_wali_santri");
+        var vid_hapalan = $(this).attr("vid_hapalan");
 
-        if (!vid_wali_santri) {
-            toastr.error('Data gagal disimpan.');
+        if (!vid_hapalan) {
+            toastr.error('Data gagal dihapus.');
             return
         }
 
         var value = {
-            id_wali_santri: vid_wali_santri
+            id_hapalan: vid_hapalan
         };
 
         Swal.fire({
@@ -155,17 +155,17 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "POST",
-                    url: _url.concat('/delete'),
+                    url: _baseurl.concat('/Hapalan/delete'),
                     data: value,
                     cache: false,
                     success: function(data, textStatus, jqXHR) {
                         debugger
                         var table = $('#ao').DataTable();
                         table.ajax.reload();
-                        toastr.success('Data berhasil disimpan.');
+                        toastr.success('Data berhasil dihapus.');
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
-                        toastr.error('Data gagal disimpan.');
+                        toastr.error('Data gagal dihapus.');
                     }
                 });
             }
