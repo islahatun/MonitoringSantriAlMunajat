@@ -35,10 +35,10 @@ class MPrestasi extends CI_Model
 
     public function datalistPrestasi($id)
     {
-        $this->db->select('*');
-        $this->db->from("trans_pelanggaran_vd");
-        $this->db->where("id_kelas", $id);
-
+        $this->db->select('*,dm_santri.kelas');
+        $this->db->from("dm_prestasi");
+        $this->db->join("dm_santri","dm_santri.nisn = dm_prestasi.nisn");
+        $this->db->where("dm_santri.kelas", $id);
         $finalResponse =  $this->db->get_where()->result();
 
         return $finalResponse;
@@ -50,6 +50,16 @@ class MPrestasi extends CI_Model
         $this->db->where("kelas.id_kelas", $id);
         $this->db->join('kelas', 'kelas.id_kelas = dm_wali_santri.id_kelas');
         $this->db->order_by("nama_kelas", 'ASC');
+
+        $finalResponse =  $this->db->get_where()->row();
+        return $finalResponse;
+    }
+    public function getPrestasiById($id)
+    {
+        $this->db->select('*,dm_santri.nama_santri,dm_santri.kelas');
+        $this->db->from("dm_prestasi");
+        $this->db->from("dm_santri","dm_santri.nisn = dm_prestasi.nisn");
+        $this->db->where("id_prestasi", $id);
 
         $finalResponse =  $this->db->get_where()->row();
         return $finalResponse;

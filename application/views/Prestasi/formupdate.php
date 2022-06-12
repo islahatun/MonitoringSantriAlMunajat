@@ -37,7 +37,7 @@
                         <form id="form_poliklinik" class="form-horizontal">
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <input type="hidden" value="<?= $ao->id_prestasi ?>">
+                                <input type="text" value="<?= $ao->id_prestasi ?>" id="id_prestasi">
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">NISN</label>
                                     <div class="col-sm-10">
@@ -65,7 +65,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Prestasi/listPrestasi/' . $dp->id_kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('Prestasi/listPrestasi/' . $ao->kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
@@ -88,13 +88,14 @@
     function updateSaveAO() {
         debugger
         PatchURL = _baseurl.concat('/Prestasi/updateSave');
-
+        var vid_prestasi = $("#id_prestasi").val();
         var vnisn = $("#nisn").val();
         var vnama_santri = $("#nama_santri").val();
         var vprestasi = $("#prestasi").val();
         var vtanggal_submit = $("#tanggal_submit").val();
 
         var value = {
+            id_prestasi: vid_prestasi,
             nisn: vnisn,
             nama_santri: vnama_santri,
             prestasi: vprestasi,

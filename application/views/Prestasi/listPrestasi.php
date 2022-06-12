@@ -43,7 +43,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <form action="">
-                                <input type="hidden" value="<?= $dp->id_kelas ?>">
+                                <input type="hidden" value="<?= $dp->id_kelas ?>" id="id_kelas">
                             </form>
                             <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
@@ -121,17 +121,17 @@
 
 
 
-    $(document).on("click", "#btn_id_wali_santri_del", function() {
+    $(document).on("click", "#btn_id_Prestasi_del", function() {
         //debugger
-        var vid_wali_santri = $(this).attr("vid_wali_santri");
+        var vid_prestasi = $(this).attr("vid_prestasi");
 
-        if (!vid_wali_santri) {
-            toastr.error('Data gagal disimpan.');
+        if (!vid_prestasi) {
+            toastr.error('Data gagal dihapus.');
             return
         }
 
         var value = {
-            id_wali_santri: vid_wali_santri
+            id_prestasi: vid_prestasi
         };
 
         Swal.fire({
@@ -145,17 +145,17 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "POST",
-                    url: _url.concat('/delete'),
+                    url: _baseurl.concat('/Prestasi/delete'),
                     data: value,
                     cache: false,
                     success: function(data, textStatus, jqXHR) {
                         debugger
                         var table = $('#ao').DataTable();
                         table.ajax.reload();
-                        toastr.success('Data berhasil disimpan.');
+                        toastr.success('Data berhasil dihapus.');
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
-                        toastr.error('Data gagal disimpan.');
+                        toastr.error('Data gagal dihapus.');
                     }
                 });
             }
