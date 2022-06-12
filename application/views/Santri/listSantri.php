@@ -32,7 +32,7 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Pelanggaran/add/' . $dp->id_kelas); ?>" class="btn btn-sm btn-info">
+                                    <a href="<?= base_url('Santri/add/' . $dp->id_kelas); ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
                                 </div>
@@ -51,10 +51,9 @@
                                         <th class="col-md-1">No</th>
                                         <th class="col-md-1 text-center">NISN</th>
                                         <th class="col-md-2 text-center">Nama Santri</th>
-                                        <th class="col-md-1 text-center">Pelanggaran</th>
-                                        <th class="col-md-2 text-center">Hukuman</th>
-                                        <!-- <th class="col-md-2 text-center">Nama Pencatat</th> -->
-                                        <th class="col-md-2 text-center">Tanggal</th>
+                                        <th class="col-md-1 text-center">Jenis Kelamin</th>
+                                        <th class="col-md-2 text-center">Tanggal Lahir</th>
+                                        <th class="col-md-2 text-center">Alamat</th>
                                         <th class="col-md-1 text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -83,7 +82,7 @@
     $(document).ready(function() {
         //debugger
         var id_kelas = $("#id_kelas").val();
-        PatchURL = _baseurl.concat('/Pelanggaran/datalistPelanggaran/', id_kelas);
+        PatchURL = _baseurl.concat('/Santri/datalistSantri/', id_kelas);
         $('#ao').DataTable({
             //"order": [2, "asc", 1, "asc"], //Initial no order.
             "destroy": true,
@@ -106,19 +105,15 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "pelanggaran",
+                    "data": "jenis_kelamin",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "hukuman",
+                    "data": "tanggal_lahir",
                     className: "align-middle text-center small"
                 },
-                // {
-                //     "data": "pencatat",
-                //     className: "align-middle text-center small"
-                // },
                 {
-                    "data": "tanggal_submit",
+                    "data": "alamat",
                     className: "align-middle text-center small"
                 },
                 {
@@ -131,17 +126,17 @@
 
 
 
-    $(document).on("click", "#btn_id_pelanggaran_del", function() {
+    $(document).on("click", "#bbtn_id_Santri_del", function() {
         //debugger
-        var vid_pelanggaran = $(this).attr("vid_pelanggaran");
+        var vid_santri = $(this).attr("vid_santri");
 
-        if (!vid_pelanggaran) {
+        if (!vid_santri) {
             toastr.error('Data gagal dihapus.');
             return
         }
 
         var value = {
-            id_pelanggaran: vid_pelanggaran
+            id_santri: vid_santri
         };
 
         Swal.fire({
@@ -155,7 +150,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "POST",
-                    url: _baseurl.concat('/Pelanggaran/delete'),
+                    url: _baseurl.concat('/Prestasi/delete'),
                     data: value,
                     cache: false,
                     success: function(data, textStatus, jqXHR) {

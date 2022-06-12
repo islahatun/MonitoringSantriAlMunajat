@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class MPelanggaran extends CI_Model
+class MSantri extends CI_Model
 {
     public function __construct()
     {
@@ -33,13 +33,11 @@ class MPelanggaran extends CI_Model
         return $finalResponse;
     }
 
-    public function datalistPelanggaran($id)
+    public function datalistSantri($id)
     {
-        $this->db->select('dm_pelanggaran.id_pelanggaran,dm_pelanggaran.nisn,dm_pelanggaran.pelanggaran,dm_pelanggaran.nama_santri,dm_pelanggaran.tanggal_submit,dm_pelanggaran.hukuman,dm_santri.kelas');
-        $this->db->from("dm_pelanggaran");
-        $this->db->join("dm_santri","dm_santri.nisn = dm_pelanggaran.nisn");
-        $this->db->where("dm_santri.kelas", $id);
-
+        $this->db->select('*');
+        $this->db->from("dm_santri");
+        $this->db->where("kelas", $id);
         $finalResponse =  $this->db->get_where()->result();
 
         return $finalResponse;
@@ -55,12 +53,11 @@ class MPelanggaran extends CI_Model
         $finalResponse =  $this->db->get_where()->row();
         return $finalResponse;
     }
-    public function getPelanggaranById($id)
+    public function getSantriById($id)
     {
-        $this->db->select('dm_pelanggaran.id_pelanggaran,dm_pelanggaran.nisn,dm_pelanggaran.pelanggaran,dm_pelanggaran.nama_santri,dm_pelanggaran.tanggal_submit,dm_pelanggaran.hukuman,dm_santri.kelas');
-        $this->db->from("dm_pelanggaran");
-        $this->db->join("dm_santri","dm_santri.nisn = dm_pelanggaran.nisn");
-        $this->db->where("dm_pelanggaran.id_pelanggaran", $id);
+        $this->db->select('*');
+        $this->db->from("dm_santri");
+        $this->db->where("id_santri", $id);
 
         $finalResponse =  $this->db->get_where()->row();
         return $finalResponse;

@@ -58,12 +58,12 @@
                                         <input type="text" class="form-control form-control-sm" id="hukuman" placeholder="Hukuman">
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Pencatat</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control form-control-sm" id="pencatat" placeholder="Pencatat">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Tanggal</label>
                                     <div class="col-sm-10">
@@ -107,7 +107,7 @@
         var vnama_santri = $("#nama_santri").val();
         var vpelanggaran = $("#pelanggaran").val();
         var vhukuman = $("#hukuman").val();
-        var vpencatat = $("#pencatat").val();
+        // var vpencatat = $("#pencatat").val();
         var vtanggal_submit = $("#tanggal_submit").val();
 
         var value = {
@@ -115,7 +115,7 @@
             nama_santri: vnama_santri,
             pelanggaran: vpelanggaran,
             hukuman: vhukuman,
-            pencatat: vpencatat,
+            // pencatat: vpencatat,
             tanggal_submit: vtanggal_submit
         };
 

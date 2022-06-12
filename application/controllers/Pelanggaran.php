@@ -70,7 +70,7 @@ class Pelanggaran extends CI_Controller
                 'nama_santri'    => $ao->nama_santri,
                 'pelanggaran'    => $ao->pelanggaran,
                 'hukuman'    => $ao->hukuman,
-                'pencatat'    => $ao->pencatat,
+                // 'pencatat'    => $ao->pencatat,
                 'tanggal_submit'    => $ao->tanggal_submit,
                 'btn_action'         => "<a href='" . base_url('Pelanggaran/update/' . $ao->id_pelanggaran) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
@@ -100,7 +100,7 @@ class Pelanggaran extends CI_Controller
         $data['title'] = 'Pelanggaran';
 
         $data['subtitle'] = 'Tambah Data Pelanggaran';
-        $data["ao"] = $this->MPelanggaran->getById($id);
+        $data["ao"] = $this->MPelanggaran->getPelanggaranById($id);
 
         $data['content_overview'] = $this->load->view('Pelanggaran/formupdate', $data, true);
         $this->load->view('overview', $data);
@@ -113,7 +113,7 @@ class Pelanggaran extends CI_Controller
             'nama_santri' => $this->input->post('nama_santri'),
             'hukuman' => $this->input->post('hukuman'),
             'pelanggaran' => $this->input->post('pelanggaran'),
-            'pencatat' => $this->input->post('pencatat'),
+            // 'pencatat' => $this->input->post('pencatat'),
             'tanggal_submit' => $this->input->post('tanggal_submit'),
         );
 
@@ -127,7 +127,7 @@ class Pelanggaran extends CI_Controller
             'nama_santri' => $this->input->post('nama_santri'),
             'hukuman' => $this->input->post('hukuman'),
             'pelanggaran' => $this->input->post('pelanggaran'),
-            'pencatat' => $this->input->post('pencatat'),
+            // 'pencatat' => $this->input->post('pencatat'),
             'tanggal_submit' => $this->input->post('tanggal_submit'),
         );
 
@@ -139,6 +139,6 @@ class Pelanggaran extends CI_Controller
     {
 
         $this->db->where('id_pelanggaran', $this->input->post('id_pelanggaran'));
-        $this->db->update("dm_pelanggaran");
+        $this->db->delete("dm_pelanggaran");
     }
 }
