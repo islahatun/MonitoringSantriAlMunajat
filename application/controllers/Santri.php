@@ -69,12 +69,12 @@ class Santri extends CI_Controller
                 'nisn'         => $ao->nisn,
                 'nama_santri'    => $ao->nama_santri,
                 'jenis_kelamin'    => $ao->jenis_kelamin,
-				'tanggal_lahir'    => $ao->tanggal_lahir,
+                'tanggal_lahir'    => $ao->tanggal_lahir,
                 'alamat'    => $ao->alamat,
                 'btn_action'         => "<a href='" . base_url('Santri/update/' . $ao->id_santri) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
-											<button type='button' id='btn_id_Santri_del' vid_Santri=" . $ao->id_santri . " class='btn btn-sm btn-outline-danger'> 
+											<button type='button' id='btn_id_Santri_del' vid_santri=" . $ao->id_santri . " class='btn btn-sm btn-outline-danger'> 
 												<i class='fas fa-trash-alt'></i>
 											</button>"
             );
@@ -112,21 +112,21 @@ class Santri extends CI_Controller
             'nama_santri' => $this->input->post('nama_santri'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
             'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-			'alamat' => $this->input->post('alamat'),
-			'agama' => $this->input->post('agama'),
+            'alamat' => $this->input->post('alamat'),
+            'agama' => $this->input->post('agama'),
             'nama_ayah' => $this->input->post('nama_ayah'),
             'tanggal_lahir_ayah' => $this->input->post('tanggal_lahir_ayah'),
             'pekerjaan_ayah' => $this->input->post('pekerjaan_ayah'),
-			'no_hp_ayah' => $this->input->post('no_hp_ayah'),
+            'no_hp_ayah' => $this->input->post('no_hp_ayah'),
             'nama_ibu' => $this->input->post('nama_ibu'),
             'tanggal_lahir_ibu' => $this->input->post('tanggal_lahir_ibu'),
             'pekerjaan_ibu' => $this->input->post('pekerjaan_ibu'),
-			'no_hp_ibu' => $this->input->post('no_hp_ibu'),
+            'no_hp_ibu' => $this->input->post('no_hp_ibu'),
             'nama_wali_santri' => $this->input->post('nama_wali_santri'),
             'alamat_wali_santri' => $this->input->post('alamat_wali_santri'),
             'no_hp_wali_santri' => $this->input->post('no_hp_wali_santri'),
-			'alamat_orangtua' => $this->input->post('alamat_orang_tua'),
-			'kelas' => $this->input->post('kelas'),
+            'alamat_orangtua' => $this->input->post('alamat_orang_tua'),
+            'kelas' => $this->input->post('kelas'),
         );
 
         $this->db->insert("dm_Santri", $data);
@@ -135,35 +135,35 @@ class Santri extends CI_Controller
     function updateSave()
     {
         $data = array(
-			'nisn' => $this->input->post('nisn'),
+            'nisn' => $this->input->post('nisn'),
             'nama_santri' => $this->input->post('nama_santri'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
             'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-			'alamat' => $this->input->post('alamat'),
-			'agama' => $this->input->post('agama'),
+            'alamat' => $this->input->post('alamat'),
+            'agama' => $this->input->post('agama'),
             'nama_ayah' => $this->input->post('nama_ayah'),
             'tanggal_lahir_ayah' => $this->input->post('tanggal_lahir_ayah'),
             'pekerjaan_ayah' => $this->input->post('pekerjaan_ayah'),
-			'no_hp_ayah' => $this->input->post('no_hp_ayah'),
+            'no_hp_ayah' => $this->input->post('no_hp_ayah'),
             'nama_ibu' => $this->input->post('nama_ibu'),
             'tanggal_lahir_ibu' => $this->input->post('tanggal_lahir_ibu'),
             'pekerjaan_ibu' => $this->input->post('pekerjaan_ibu'),
-			'no_hp_ibu' => $this->input->post('no_hp_ibu'),
+            'no_hp_ibu' => $this->input->post('no_hp_ibu'),
             'nama_wali_santri' => $this->input->post('nama_wali_santri'),
             'alamat_wali_santri' => $this->input->post('alamat_wali_santri'),
             'no_hp_wali_santri' => $this->input->post('no_hp_wali_santri'),
-			'alamat_orangtua' => $this->input->post('alamat_orang_tua'),
-			'kelas' => $this->input->post('kelas'),
+            'alamat_orangtua' => $this->input->post('alamat_orang_tua'),
+            'kelas' => $this->input->post('kelas'),
         );
 
-        $this->db->where('id_Santri', $this->input->post('id_Santri'));
+        $this->db->where('id_santri', $this->input->post('id_santri'));
         $this->db->update("dm_Santri", $data);
     }
 
     public function delete()
     {
 
-        $this->db->where('id_Santri', $this->input->post('id_Santri'));
-        $this->db->delete ("dm_Santri");
+        $this->db->where('id_santri', $this->input->post('id_santri'));
+        $this->db->delete("dm_Santri");
     }
 }

@@ -37,127 +37,139 @@
                         <form id="form_poliklinik" class="form-horizontal">
                             <!-- /.card-header -->
                             <div class="card-body">
-                            <input type="hidden" class="form-control form-control-sm" id="kelas" value="<?=$dp->id_kelas?>">
+                                <input type="hidden" class="form-control form-control-sm" id="id_santri" value="<?= $ao->id_santri ?>">
                                 <div class="row">
                                     <div class="col">
-                                    <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">NISN</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Nama Santri</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Jenis Kelamin</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Tanggal Lahir</label>
-                                    <div class="col-sm-8">
-                                        <input type="date" class="form-control form-control-sm" id="tanggal_lahir"  placeholder="Tanggal Lahir">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Agama</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="agama"  placeholder="agama">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Alamat</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="alamat"  placeholder="alamat">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Nama Ayah</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="nama_ayah"  placeholder="nama_ayah">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Tanggal Lahir Ayah</label>
-                                    <div class="col-sm-8">
-                                        <input type="date" class="form-control form-control-sm" id="tanggal_lahir_ayah"  placeholder="Tanggal Lahir Ayah">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Pekerjaan Ayah</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="pekerjaan_ayah" placeholder="Pekerjaan Ayah">
-                                    </div>
-                                </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">NISN</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN" value="<?= $ao->nisn ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Nama Santri</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri" value="<?= $ao->nama_santri ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Kelas</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control form-control-sm" id="kelas" name="kelas">
+                                                    <option><?= $ao->nama_kelas ?></option>
+                                                    <?php
+                                                    $daftarKelas = $this->db->get('kelas')->result();
+                                                    foreach ($daftarKelas as $dk) : ?>
+                                                        <option value="<?= $dk->id_kelas ?>"><?= $dk->nama_kelas ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Jenis Kelamin</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin" value="<?= $ao->jenis_kelamin ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Tanggal Lahir</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" class="form-control form-control-sm" id="tanggal_lahir" placeholder="Tanggal Lahir" value="<?= $ao->tanggal_lahir ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Agama</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="agama" placeholder="agama" value="<?= $ao->agama ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Alamat</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="alamat" placeholder="alamat" value="<?= $ao->alamat ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Nama Ayah</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="nama_ayah" placeholder="nama_ayah" value="<?= $ao->nama_ayah ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Tanggal Lahir Ayah</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" class="form-control form-control-sm" id="tanggal_lahir_ayah" placeholder="Tanggal Lahir Ayah" value="<?= $ao->tanggal_lahir_ayah ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Pekerjaan Ayah</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="pekerjaan_ayah" placeholder="Pekerjaan Ayah" value="<?= $ao->pekerjaan_ayah ?>">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col">
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">No Hp Ayah</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="no_hp_ayah" placeholder="No Hp Ayah">
-                                    </div>
-                                </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">No Hp Ayah</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="no_hp_ayah" placeholder="No Hp Ayah" value="<?= $ao->no_hp_ayah ?>">
+                                            </div>
+                                        </div>
 
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Nama Ibu</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="nama_ibu" placeholder="Nama Ibu">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Tanggal Lahir Ibu</label>
-                                    <div class="col-sm-8">
-                                        <input type="date" class="form-control form-control-sm" id="tanggal_lahir_ibu"  placeholder="Tanggal Lahir Ibu">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Pekerjaan Ibu</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="pekerjaan_ibu"  placeholder="Pekerjaan Ibu">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">No Hp Ibu</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="no_hp_ibu"  placeholder="No Hp Ibu">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Alammat Orang Tua</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="alamat_orang_tua"  placeholder="Alamat Orang Tua">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Nama Wali santri</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="nama_wali_santri"  placeholder="Nama Wali Santri">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">Alamat Wali santri</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="alamat_wali_santri"  placeholder="Alamat Wali Santri">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-4 col-form-label-sm">No Hp Wali santri</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control form-control-sm" id="no_hp_wali_santri"  placeholder="No Hp Wali Santri">
-                                    </div>
-                                </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Nama Ibu</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="nama_ibu" placeholder="Nama Ibu" value="<?= $ao->nama_ibu ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Tanggal Lahir Ibu</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" class="form-control form-control-sm" id="tanggal_lahir_ibu" placeholder="Tanggal Lahir Ibu" value="<?= $ao->tanggal_lahir_ibu ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Pekerjaan Ibu</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="pekerjaan_ibu" placeholder="Pekerjaan Ibu" value="<?= $ao->pekerjaan_ibu ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">No Hp Ibu</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="no_hp_ibu" placeholder="No Hp Ibu" value="<?= $ao->no_hp_ibu ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Alammat Orang Tua</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="alamat_orang_tua" placeholder="Alamat Orang Tua" value="<?= $ao->alamat_orangtua ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Nama Wali santri</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="nama_wali_santri" placeholder="Nama Wali Santri" value="<?= $ao->nama_wali_santri ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Alamat Wali santri</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="alamat_wali_santri" placeholder="Alamat Wali Santri" value="<?= $ao->alamat_wali_santri ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">No Hp Wali santri</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="no_hp_wali_santri" placeholder="No Hp Wali Santri" value="<?= $ao->no_hp_wali_santri ?>">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Prestasi/listPrestasi/' . $ao->kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('Santri/listSantri/' . $ao->kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
@@ -179,7 +191,9 @@
 <script>
     function updateSaveAO() {
         debugger
-        PatchURL = _baseurl.concat('/Prestasi/updateSave');
+        PatchURL = _baseurl.concat('/Santri/updateSave');
+
+        var vid_santri = $("#id_santri").val();
         var vnisn = $("#nisn").val();
         var vnama_santri = $("#nama_santri").val();
         var vkelas = $("#kelas").val();
@@ -201,6 +215,7 @@
         var vno_hp_wali_santri = $("#no_hp_wali_santri").val();
 
         var value = {
+            id_santri: vid_santri,
             alamat: valamat,
             nama_ayah: vnama_ayah,
             no_hp_ayah: vno_hp_ayah,
@@ -209,7 +224,7 @@
             nama_ibu: vnama_ibu,
             tanggal_lahir_ibu: vtanggal_lahir_ibu,
             pekerjaan_ibu: vpekerjaan_ibu,
-           no_hp_ibu: vno_hp_ibu,
+            no_hp_ibu: vno_hp_ibu,
             alamat_orang_tua: valamat_orang_tua,
             nama_wali_santri: vnama_wali_santri,
             alamat_wali_santri: valamat_wali_santri,
@@ -239,10 +254,7 @@
     }
 
     function clearText() {
-        $("#nisn").val("");
-        $("#nama_santri").val("");
-        $("#prestasi").val("");
-        $("#tanggal_submit").val("");
+
     }
 </script>
 <!-- SweetAlert2 -->

@@ -31,23 +31,30 @@
                                 <div class="col-md-6">
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
-                                <!-- <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('WaliSantri/add'); ?>" class="btn btn-sm btn-info">
+                                <div class="col-md-6 text-right">
+                                    <a href="<?= base_url('Pelanggaran/add/' . $dp->id_kelas); ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <form action="">
+                                <input type="hidden" value="<?= $dp->id_kelas ?>" id="id_kelas">
+                            </form>
                             <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th class="col-md-2 text-center">Kelas</th>
-                                        <th class="col-md-2 text-center">Wali Kelas</th>
+                                        <th class="col-md-1 text-center">NISN</th>
+                                        <th class="col-md-2 text-center">Nama Santri</th>
+                                        <th class="col-md-1 text-center">Pelanggaran</th>
+                                        <th class="col-md-2 text-center">Hukuman</th>
+                                        <!-- <th class="col-md-2 text-center">Nama Pencatat</th> -->
+                                        <th class="col-md-2 text-center">Tanggal</th>
                                         <th class="col-md-1 text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -75,6 +82,7 @@
 <script>
     $(document).ready(function() {
         //debugger
+
         PatchURL = _url.concat('/datalist');
         $('#ao').DataTable({
             //"order": [2, "asc", 1, "asc"], //Initial no order.
@@ -90,11 +98,27 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "id_kelas",
+                    "data": "nisn",
                     className: "align-middle small"
                 },
                 {
-                    "data": "nama_wali_santri",
+                    "data": "nama_santri",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "pelanggaran",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "hukuman",
+                    className: "align-middle text-center small"
+                },
+                // {
+                //     "data": "pencatat",
+                //     className: "align-middle text-center small"
+                // },
+                {
+                    "data": "tanggal_submit",
                     className: "align-middle text-center small"
                 },
                 {
@@ -107,17 +131,17 @@
 
 
 
-    $(document).on("click", "#btn_id_Santri_del", function() {
+    $(document).on("click", "#btn_id_pelanggaran_del", function() {
         //debugger
-        var vid_santri = $(this).attr("vid_santri");
+        var vid_pelanggaran = $(this).attr("vid_pelanggaran");
 
-        if (!vid_santri) {
-            toastr.error('Data gagal disimpan.');
+        if (!vid_pelanggaran) {
+            toastr.error('Data gagal dihapus.');
             return
         }
 
         var value = {
-            id_santri: vid_santri
+            id_pelanggaran: vid_pelanggaran
         };
 
         Swal.fire({
@@ -131,17 +155,17 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "POST",
-                    url: _baseurl.concat('/Santri/delete'),
+                    url: _url.concat('/delete'),
                     data: value,
                     cache: false,
                     success: function(data, textStatus, jqXHR) {
                         debugger
                         var table = $('#ao').DataTable();
                         table.ajax.reload();
-                        toastr.success('Data berhasil disimpan.');
+                        toastr.success('Data berhasil dihapus.');
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
-                        toastr.error('Data gagal disimpan.');
+                        toastr.error('Data gagal dihapus.');
                     }
                 });
             }

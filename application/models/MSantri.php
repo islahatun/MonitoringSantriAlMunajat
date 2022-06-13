@@ -55,8 +55,9 @@ class MSantri extends CI_Model
     }
     public function getSantriById($id)
     {
-        $this->db->select('*');
+        $this->db->select('*,kelas.nama_kelas');
         $this->db->from("dm_santri");
+        $this->db->from("kelas", 'kelas.id_kelas=dm_santri.kelas');
         $this->db->where("id_santri", $id);
 
         $finalResponse =  $this->db->get_where()->row();
