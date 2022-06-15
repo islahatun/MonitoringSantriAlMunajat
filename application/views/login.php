@@ -18,8 +18,8 @@
     <!-- Image and text -->
     <nav class="navbar navbar-info bg-info">
       <a class="navbar-brand" href="#">
-        <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Bootstrap
+        <img src="<?= base_url('assets/images/logo.jpeg'); ?>" width="30" height="30" class="brand-image img-circle elevation-3" style="opacity: .8" alt="">
+        Monitoring Santri Al-Munajat
       </a>
     </nav>
     <!-- Navbar End -->
