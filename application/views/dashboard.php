@@ -19,11 +19,20 @@
         <div class="row">
           <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+              <span class="info-box-icon bg-info elevation-1">
+                <i class="fas fa-medal"></i>
+              </span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Prestasi</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-text"> <a href="">Prestasi</a> </span>
+                <span class="info-box-number">
+                  <?php
+
+                  $hitung = "SELECT * FROM dm_prestasi ";
+                  $h = $this->db->query($hitung)->num_rows();
+                  echo $h;
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -32,11 +41,19 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-shopping-cart"></i></span>
+              <span class="info-box-icon bg-danger elevation-1">
+                <i class="fas fa-book-reader"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Hapalan</span>
-                <span class="info-box-number"></span>
+                <span class="info-box-number">
+                  <?php
+
+                  $hitung = "SELECT * FROM dm_hapalan";
+                  $h = $this->db->query($hitung)->num_rows();
+                  echo $h;
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -49,11 +66,16 @@
 
           <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-capsules"></i></span>
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-calendar-alt"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Pelanggaran</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-number"><?php
+
+                                              $hitung = "SELECT * FROM dm_pelanggaran";
+                                              $h = $this->db->query($hitung)->num_rows();
+                                              echo $h;
+                                              ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>

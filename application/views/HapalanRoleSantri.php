@@ -31,25 +31,29 @@
                                 <div class="col-md-6">
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
-                                <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Satuan/add'); ?>" class="btn btn-sm btn-info mr-1">
+                                <!-- <div class="col-md-6 text-right">
+                                    <a href="<?= base_url('HapalanRoleGuru/add'); ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
-                                    <a href="<?= base_url('Parameter') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="satuan" class="table w-100 table-bordered table-striped">
+
+                            <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Satuan Dosis</th>
-                                        <th class="col-md-1 text-center">Status</th>
-                                        <th class="col-md-2 text-center">#</th>
+                                        <!-- <th class="col-md-1 text-center">NISN</th>
+                                        <th class="col-md-2 text-center">Nama Santri</th> -->
+                                        <th class="col-md-1 text-center">juz</th>
+                                        <th class="col-md-2 text-center">Surah</th>
+                                        <th class="col-md-1 text-center">Ayat</th>
+                                        <th class="col-md-2 text-center">Tanggal</th>
+                                        <!-- <th class="col-md-2 text-center">Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,8 +80,9 @@
 <script>
     $(document).ready(function() {
         //debugger
+
         PatchURL = _url.concat('/datalist');
-        $('#satuan').DataTable({
+        $('#ao').DataTable({
             //"order": [2, "asc", 1, "asc"], //Initial no order.
             "destroy": true,
 
@@ -90,35 +95,51 @@
                     "data": "nomor",
                     className: "align-middle text-center small"
                 },
+                // {
+                //     "data": "nisn",
+                //     className: "align-middle small"
+                // },
+                // {
+                //     "data": "nama_santri",
+                //     className: "align-middle text-center small"
+                // },
                 {
-                    "data": "satuan_name",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "status",
+                    "data": "juz",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "btn_action",
+                    "data": "surah",
                     className: "align-middle text-center small"
-                }
+                },
+                {
+                    "data": "ayat",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "tanggal",
+                    className: "align-middle text-center small"
+                },
+                // {
+                //     "data": "btn_action",
+                //     className: "align-middle text-center small"
+                // }
             ]
         });
     });
 
 
 
-    $(document).on("click", "#btn_satuan_del", function() {
+    $(document).on("click", "#btn_id_hapalan_del", function() {
         //debugger
-        var vsatuan_id = $(this).attr("vsatuan_id");
+        var vid_hapalan = $(this).attr("vid_hapalan");
 
-        if (!vsatuan_id) {
-            toastr.error('Data gagal disimpan.');
+        if (!vid_hapalan) {
+            toastr.error('Data gagal dihapus.');
             return
         }
 
         var value = {
-            satuan_id: vsatuan_id
+            id_hapalan: vid_hapalan
         };
 
         Swal.fire({
@@ -132,12 +153,12 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "POST",
-                    url: _url.concat('/delete'),
+                    url: _baseurl.concat('/Hapalan/delete'),
                     data: value,
                     cache: false,
                     success: function(data, textStatus, jqXHR) {
                         debugger
-                        var table = $('#satuan').DataTable();
+                        var table = $('#ao').DataTable();
                         table.ajax.reload();
                         toastr.success('Data berhasil dihapus.');
                     },

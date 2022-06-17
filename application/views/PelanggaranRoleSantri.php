@@ -31,29 +31,29 @@
                                 <div class="col-md-6">
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
-                                <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('BatalTransaksi') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a>
-
-                                </div>
+                                <!-- <div class="col-md-6 text-right">
+                                    <a href="<?= base_url('PelanggaranRoleGuru/add'); ?>" class="btn btn-sm btn-info">
+                                        <i class="fas fa-plus"></i> Tambah
+                                    </a>
+                                </div> -->
                             </div>
                         </div>
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="td" class="table w-100 table-bordered table-striped">
+
+                            <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Id Pendaftaran</th>
-                                        <th>Tanggal Pendaftaran</th>
-                                        <th>Nama Pasien</th>
-                                        <th>No Id</th>
-                                        <th>No RM</th>
-                                        <th>Alamat</th>
-                                        <th>Tanggal Lahir</th>
-                                        <th class="col-md-1 text-center">Status</th>
-                                        <!-- <th class="col-md-2 text-center">#</th> -->
+                                        <!-- <th class="col-md-1 text-center">NISN</th>
+                                        <th class="col-md-2 text-center">Nama Santri</th> -->
+                                        <th class="col-md-1 text-center">Pelanggaran</th>
+                                        <th class="col-md-2 text-center">Hukuman</th>
+                                        <!-- <th class="col-md-2 text-center">Nama Pencatat</th> -->
+                                        <th class="col-md-2 text-center">Tanggal</th>
+                                        <!-- <th class="col-md-1 text-center">Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -80,8 +80,9 @@
 <script>
     $(document).ready(function() {
         //debugger
-        PatchURL = _baseurl.concat('/BatalTransaksi/ListbatalTransaksi');
-        $('#td').DataTable({
+
+        PatchURL = _url.concat('/datalist');
+        $('#ao').DataTable({
             //"order": [2, "asc", 1, "asc"], //Initial no order.
             "destroy": true,
 
@@ -93,47 +94,80 @@
             "columns": [{
                     "data": "nomor",
                     className: "align-middle text-center small"
-
                 },
+                // {
+                //     "data": "nisn",
+                //     className: "align-middle small"
+                // },
+                // {
+                //     "data": "nama_santri",
+                //     className: "align-middle text-center small"
+                // },
                 {
-                    "data": "id_pendaftaran",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "tanggal_pendaftaran",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "nama",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "identitas_id",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "id",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "alamat",
+                    "data": "pelanggaran",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "tgl_lahir",
+                    "data": "hukuman",
                     className: "align-middle text-center small"
                 },
+                // {
+                //     "data": "pencatat",
+                //     className: "align-middle text-center small"
+                // },
                 {
-                    "data": "status",
+                    "data": "tanggal_submit",
                     className: "align-middle text-center small"
-                }
-                // ,
+                },
                 // {
                 //     "data": "btn_action",
                 //     className: "align-middle text-center small"
                 // }
             ]
         });
+    });
+
+
+
+    $(document).on("click", "#btn_id_pelanggaran_del", function() {
+        //debugger
+        var vid_pelanggaran = $(this).attr("vid_pelanggaran");
+
+        if (!vid_pelanggaran) {
+            toastr.error('Data gagal dihapus.');
+            return
+        }
+
+        var value = {
+            id_pelanggaran: vid_pelanggaran
+        };
+
+        Swal.fire({
+            title: 'Apakah anda yakin.?',
+            text: "Data yang dihapus tidak dapat dikembalikan!",
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: _url.concat('/delete'),
+                    data: value,
+                    cache: false,
+                    success: function(data, textStatus, jqXHR) {
+                        debugger
+                        var table = $('#ao').DataTable();
+                        table.ajax.reload();
+                        toastr.success('Data berhasil dihapus.');
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        toastr.error('Data gagal dihapus.');
+                    }
+                });
+            }
+        })
     });
 </script>
 <!-- SweetAlert2 -->

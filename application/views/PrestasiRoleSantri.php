@@ -31,30 +31,27 @@
                                 <div class="col-md-6">
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
-                                <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('BatalTransaksi/ListBatal'); ?>" class="btn btn-sm btn-info">
-                                        </i>Daftar Batal Transaksi
+                                <!-- <div class="col-md-6 text-right">
+                                    <a href="<?= base_url('PrestasiRoleGuru/add'); ?>" class="btn btn-sm btn-info">
+                                        <i class="fas fa-plus"></i> Tambah
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="td" class="table w-100 table-bordered table-striped">
+
+                            <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Id Pendaftaran</th>
-                                        <th>Tanggal Pendaftaran</th>
-                                        <th>Nama Pasien</th>
-                                        <th>No Id</th>
-                                        <th>No RM</th>
-                                        <th>Alamat</th>
-                                        <th>Tanggal Lahir</th>
-                                        <th class="col-md-1 text-center">Status</th>
-                                        <!-- <th class="col-md-2 text-center">#</th> -->
+                                        <!-- <th class="col-md-1 text-center">NISN</th>
+                                        <th class="col-md-2 text-center">Nama Santri</th> -->
+                                        <th class="col-md-2 text-center">Prestasi</th>
+                                        <th class="col-md-2 text-center">Tanggal</th>
+                                        <!-- <th class="col-md-1 text-center">Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -81,8 +78,9 @@
 <script>
     $(document).ready(function() {
         //debugger
+
         PatchURL = _url.concat('/datalist');
-        $('#td').DataTable({
+        $('#ao').DataTable({
             //"order": [2, "asc", 1, "asc"], //Initial no order.
             "destroy": true,
 
@@ -94,47 +92,72 @@
             "columns": [{
                     "data": "nomor",
                     className: "align-middle text-center small"
-
                 },
+                // {
+                //     "data": "nisn",
+                //     className: "align-middle small"
+                // },
+                // {
+                //     "data": "nama_santri",
+                //     className: "align-middle text-center small"
+                // },
                 {
-                    "data": "id_pendaftaran",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "tanggal_pendaftaran",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "nama",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "identitas_id",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "id",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "alamat",
+                    "data": "prestasi",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "tgl_lahir",
+                    "data": "tanggal_submit",
                     className: "align-middle text-center small"
                 },
-                {
-                    "data": "status",
-                    className: "align-middle text-center small"
-                }
-                // ,
                 // {
                 //     "data": "btn_action",
                 //     className: "align-middle text-center small"
                 // }
             ]
         });
+    });
+
+
+
+    $(document).on("click", "#btn_id_Prestasi_del", function() {
+        //debugger
+        var vid_prestasi = $(this).attr("vid_prestasi");
+
+        if (!vid_prestasi) {
+            toastr.error('Data gagal dihapus.');
+            return
+        }
+
+        var value = {
+            id_prestasi: vid_prestasi
+        };
+
+        Swal.fire({
+            title: 'Apakah anda yakin.?',
+            text: "Data yang dihapus tidak dapat dikembalikan!",
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: _baseurl.concat('/Prestasi/delete'),
+                    data: value,
+                    cache: false,
+                    success: function(data, textStatus, jqXHR) {
+                        debugger
+                        var table = $('#ao').DataTable();
+                        table.ajax.reload();
+                        toastr.success('Data berhasil dihapus.');
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        toastr.error('Data gagal dihapus.');
+                    }
+                });
+            }
+        })
     });
 </script>
 <!-- SweetAlert2 -->
