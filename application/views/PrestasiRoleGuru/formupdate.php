@@ -65,7 +65,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Prestasi/listPrestasi/' . $ao->kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('PrestasiRoleGuru'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
