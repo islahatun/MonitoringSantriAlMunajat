@@ -73,7 +73,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Pelanggaran/listPelanggaran/' . $dp->id_kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('PelanggaranRoleGuru'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="savePelanggaran()">Save</button>
                             </div>
                         </form>
@@ -101,7 +101,7 @@
 
     function savePelanggaran() {
         //debugger
-        PatchURL = _baseurl.concat('/Pelanggaran/save');
+        PatchURL = _baseurl.concat('/PelanggaranRoleGuru/save');
 
         var vnisn = $("#nisn").val();
         var vnama_santri = $("#nama_santri").val();

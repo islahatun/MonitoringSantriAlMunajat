@@ -32,7 +32,7 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Pelanggaran/add/' . $dp->id_kelas); ?>" class="btn btn-sm btn-info">
+                                    <a href="<?= base_url('PelanggaranRoleGuru/add'); ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
                                 </div>
@@ -42,9 +42,7 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="">
-                                <input type="hidden" value="<?= $dp->id_kelas ?>" id="id_kelas">
-                            </form>
+
                             <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
                                     <tr>
