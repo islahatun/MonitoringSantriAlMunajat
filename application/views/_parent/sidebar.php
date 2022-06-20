@@ -28,7 +28,12 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <?php
-          $session =  $level =  $this->session->userdata('session');
+
+
+
+
+          $session = $this->session->userdata('session_id');
+
           $main_menu = $this->db->order_by('sort', 'ASC')->get_where('sys_navbar', array('parent_id' => 0, 'active' => 1, 'grup_id' => $session));
           foreach ($main_menu->result() as $main) {
             //Query untuk mencari data sub menu

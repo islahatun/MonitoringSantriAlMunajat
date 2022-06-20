@@ -42,7 +42,6 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-
                             <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
                                     <tr>

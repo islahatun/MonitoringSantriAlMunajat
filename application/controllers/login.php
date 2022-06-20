@@ -11,13 +11,18 @@ class Login extends CI_Controller
 		$this->load->model('MFunction');
 		$this->load->model('MLogin');
 	}
-	/*
-	public function index() {		
-        $data['title'] = 'Login';
+
+	public function index()
+	{
+		$data['title'] = 'Login';
 		$data['template_page'] = $this->load->view('login', $data, true);
 		$this->load->view('overview', $data);
+		if ($this->session->set_userdata('status') == 'login') {
+			$data['template_page'] = $this->load->view('dashborad', $data, true);
+			$this->load->view('overview', $data);
+		}
 	}
-	*/
+
 	function login()
 	{
 		$username = $this->input->post('username');
@@ -33,8 +38,9 @@ class Login extends CI_Controller
 
 		if ($cek > 0) {
 			$data_session = array(
-				'nama' => $username,
-				'status' => 'login'
+				'username' => $username,
+				'status' => 'login',
+				'session_id' => $user['session_id']
 			);
 
 			$this->session->set_userdata($data_session);

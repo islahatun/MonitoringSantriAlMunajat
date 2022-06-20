@@ -10,12 +10,14 @@ class Prestasi extends CI_Controller
         $this->load->model('MPrestasi');
         $this->load->model('MWaliSantri');
         $this->load->model('MKelas');
+        $this->load->model('MLogin');
     }
 
     public function index()
     {
         $data['title'] = 'Prestasi';
         $data['subtitle'] = 'Data Prestasi';
+        $data['pengguna'] = $this->MLogin->sessiondata();
 
         $data['content_overview'] = $this->load->view('Prestasi', $data, true);
         $this->load->view('overview', $data);
@@ -133,6 +135,6 @@ class Prestasi extends CI_Controller
     {
 
         $this->db->where('id_prestasi', $this->input->post('id_prestasi'));
-        $this->db->delete ("dm_prestasi");
+        $this->db->delete("dm_prestasi");
     }
 }

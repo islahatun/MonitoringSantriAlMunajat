@@ -10,10 +10,14 @@ class MPrestasiRoleGuru extends CI_Model
     public function datalist()
     {
         date_default_timezone_set('Asia/Jakarta');
-
+        $username = $this->session->userdata('username');
         $this->db->select('*');
         $this->db->from("dm_prestasi");
-        // $this->db->join('kelas', 'kelas.id_kelas = dm_prestasi.id_kelas');
+        $this->db->join('dm_santri', 'dm_santri.nisn = dm_pelanggaran.nisn');
+        $this->db->join('kelas', 'kelas.id_kelas = dm_pelanggaran.id_kelas');
+        $this->db->join('kelas', 'kelas.id_kelas = dm_santri.kelas');
+        $this->db->join('dm_wali_santri', 'dm_wali_santri.id_kelas = dm_pelanggaran.kelas');
+        $this->db->where('dm_wali_santri', $username);
         $this->db->order_by("nisn", 'ASC');
 
         $finalResponse =  $this->db->get()->result();

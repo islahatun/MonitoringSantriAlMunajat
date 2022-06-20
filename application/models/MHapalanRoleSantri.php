@@ -11,9 +11,11 @@ class MHapalanRoleSantri extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
 
+        $username = $this->session->userdata('username');
+
         $this->db->select('*');
         $this->db->from("dm_hapalan");
-        // $this->db->join('kelas', 'kelas.id_kelas = dm_hapalan.id_kelas');
+        $this->db->where('nisn', $username);
         $this->db->order_by("nisn", 'ASC');
 
         $finalResponse =  $this->db->get()->result();

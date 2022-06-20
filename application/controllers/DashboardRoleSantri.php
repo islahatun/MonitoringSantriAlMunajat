@@ -12,7 +12,7 @@ class DashboardRoleSantri extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Dasboard';
-		$data['content_wrapper'] = $this->load->view('dashboard', $data, true);
-		$this->load->view('main', $data);
+		$data['content_Overview'] = $this->load->view('dashboardRoleSantri', $data, true);
+		$this->load->view('overview', $data);
 	}
 }
