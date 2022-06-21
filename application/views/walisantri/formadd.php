@@ -35,6 +35,12 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">NIK</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form-control-sm" id="nik" placeholder="NIK">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Wali Santri</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control form-control-sm" id="nama_wali_santri" placeholder="Nama Wali Santri">
@@ -86,10 +92,14 @@
 
         var vnama_wali_santri = $("#nama_wali_santri").val();
         var vid_kelas = $("#id_kelas").val();
+        var vnik = $("#nik").val();
+        var vid_wali_santri = $("#id_wali_santri").val();
 
         var value = {
             nama_wali_santri: vnama_wali_santri,
-            id_kelas: vid_kelas
+            id_kelas: vid_kelas,
+            nik: vnik,
+            id_wali_santri: vid_wali_santri
         };
 
         $.ajax({

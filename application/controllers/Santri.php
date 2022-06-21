@@ -130,6 +130,13 @@ class Santri extends CI_Controller
         );
 
         $this->db->insert("dm_Santri", $data);
+
+        $login = array(
+            'username' => $this->input->post('nisn'),
+            'password' => md5('123'),
+            'session_id' => 2
+        );
+        $this->db->insert("sys_users", $login);
     }
 
     function updateSave()

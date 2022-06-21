@@ -71,17 +71,26 @@ class WaliSantri extends CI_Controller
     public function save()
     {
         $data = array(
+            'nik' => $this->input->post('nik'),
             'nama_wali_santri' => $this->input->post('nama_wali_santri'),
             'id_kelas' => $this->input->post('id_kelas'),
         );
 
         $this->db->insert("dm_wali_santri", $data);
+
+        $login = array(
+            'username' => $this->input->post('nik'),
+            'password' => md5('123'),
+            'session_id' => 3
+        );
+        $this->db->insert("sys_users", $login);
     }
 
     function updateSave()
     {
         $data = array(
             'id_kelas' => $this->input->post('id_kelas'),
+            'nik' => $this->input->post('nik'),
             'nama_wali_santri' => $this->input->post('nama_wali_santri')
         );
 

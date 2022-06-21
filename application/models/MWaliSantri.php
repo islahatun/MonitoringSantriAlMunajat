@@ -22,6 +22,12 @@ class MWaliSantri extends CI_Model
 
     public function getById($id)
     {
-        return $this->db->get_where("dm_wali_santri", ["id_wali_santri" => $id])->row();
+        $this->db->select('*,kelas.nama_kelas,kelas.id_kelas');
+        $this->db->from("dm_wali_santri");
+        $this->db->where("id_wali_santri", $id);
+        $this->db->join('kelas', 'kelas.id_kelas = dm_wali_santri.id_kelas');
+        $this->db->order_by("nama_kelas", 'ASC');
+
+        return $this->db->get_where()->row();
     }
 }

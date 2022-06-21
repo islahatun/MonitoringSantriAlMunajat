@@ -37,17 +37,34 @@
                         <form id="form_poliklinik" class="form-horizontal">
                             <!-- /.card-header -->
                             <div class="card-body">
+                                <input type="hidden" class="form-control form-control-sm" id="id_wali_santri" placeholder="NIK" value="<?= $ao->id_wali_santri ?>">
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Aturan Pemakaian Obat</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">NIK</label>
                                     <div class="col-sm-10">
-                                        <input type="hidden" class="form-control form-control-sm" id="aturan_obat" value="<?= $ao->aturan_obat; ?>">
-                                        <input type="text" class="form-control form-control-sm" id="aturan_obat_name" placeholder="Aturan Pemakaian Obat" value="<?= $ao->aturan_obat_name; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="nik" placeholder="NIK" value="<?= $ao->nik ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Wali Santri</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form-control-sm" id="nama_wali_santri" placeholder="Nama Guru" value="<?= $ao->nama_wali_santri ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Kelas</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control form-control-sm" id="id_kelas" name="id_kelas">
+                                            <option value="<?= $ao->id_kelas ?>"><?= $ao->nama_kelas ?></option>
+                                            <?php foreach ($daftarKelas as $dk) : ?>
+                                                <option value="<?= $dk->id_kelas ?>"><?= $dk->nama_kelas ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('AturanObat'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('WaliSantri'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
@@ -69,14 +86,16 @@
 <script>
     function updateSaveAO() {
         debugger
-        PatchURL = _baseurl.concat('/AturanObat/updateSave');
+        PatchURL = _baseurl.concat('/WaliSantri/updateSave');
 
-        var vaturan_obat = $("#aturan_obat").val();
-        var vaturan_obat_name = $("#aturan_obat_name").val();
+        var vnama_wali_santri = $("#nama_wali_santri").val();
+        var vid = $("#id").val();
+        var vnik = $("#nik").val();
 
         var value = {
-            aturan_obat: vaturan_obat,
-            aturan_obat_name: vaturan_obat_name
+            nama_wali_santri: vnama_wali_santri,
+            id: vid,
+            nik: vnik
         };
 
         $.ajax({
