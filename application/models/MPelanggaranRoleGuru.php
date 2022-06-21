@@ -15,11 +15,11 @@ class MPelanggaranRoleGuru extends CI_Model
         $this->db->select('*');
         $this->db->from("dm_pelanggaran");
         $this->db->join('dm_santri', 'dm_santri.nisn = dm_pelanggaran.nisn');
-        $this->db->join('kelas', 'kelas.id_kelas = dm_pelanggaran.id_kelas');
         $this->db->join('kelas', 'kelas.id_kelas = dm_santri.kelas');
-        $this->db->join('dm_wali_santri', 'dm_wali_santri.id_kelas = dm_pelanggaran.kelas');
-        $this->db->where('dm_wali_santri', $username);
-        $this->db->order_by("nisn", 'ASC');
+        // $this->db->join('kelas', 'kelas.id_kelas = dm_santri.kelas');
+        $this->db->join('dm_wali_santri', 'dm_wali_santri.id_kelas = kelas.id_kelas');
+        $this->db->where('dm_wali_santri.nik', $username);
+        $this->db->order_by("dm_pelanggaran.nisn", 'ASC');
 
         $finalResponse =  $this->db->get()->result();
         return $finalResponse;
