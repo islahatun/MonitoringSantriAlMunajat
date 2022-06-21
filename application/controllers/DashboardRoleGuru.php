@@ -12,7 +12,7 @@ class DashboardRoleGuru extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Dasboard';
-		$data['content_wrapper'] = $this->load->view('dashboard', $data, true);
+		$data['content_overview'] = $this->load->view('DashboardRoleGuru', $data, true);
 		$this->load->view('overview', $data);
 	}
 }
