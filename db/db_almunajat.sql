@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2022 at 02:25 PM
+-- Generation Time: Jun 21, 2022 at 05:38 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -37,17 +37,35 @@ CREATE TABLE `dm_hapalan` (
   `tanggal` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `dm_hapalan`
+--
+
+INSERT INTO `dm_hapalan` (`id_hapalan`, `nisn`, `nama_santri`, `surah`, `ayat`, `juz`, `tanggal`) VALUES
+(1, '123', 'Nama santri saya adalah', 'al- baqaarah', '1', '1', '2022-06-13');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_hukuman`
+-- Table structure for table `dm_pelanggaran`
 --
 
-CREATE TABLE `dm_hukuman` (
-  `id_hukuman` int(11) NOT NULL,
-  `poin_hukuman` int(11) NOT NULL,
-  `nama_hukuman` varchar(100) NOT NULL
+CREATE TABLE `dm_pelanggaran` (
+  `id_pelanggaran` int(11) NOT NULL,
+  `nisn` varchar(16) DEFAULT NULL,
+  `nama_santri` varchar(30) DEFAULT NULL,
+  `pelanggaran` varchar(50) DEFAULT NULL,
+  `hukuman` varchar(50) DEFAULT NULL,
+  `tanggal_submit` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dm_pelanggaran`
+--
+
+INSERT INTO `dm_pelanggaran` (`id_pelanggaran`, `nisn`, `nama_santri`, `pelanggaran`, `hukuman`, `tanggal_submit`) VALUES
+(1, '425242', 'Satria', 'Pelanggaran apa aja', 'Hukuman', '2022-06-17'),
+(3, 'hajkahassa', 'ashkajshsaa', 'ashlaasksa', 'aslasjasass', '2022-06-17');
 
 -- --------------------------------------------------------
 
@@ -68,10 +86,11 @@ CREATE TABLE `dm_prestasi` (
 --
 
 INSERT INTO `dm_prestasi` (`id_prestasi`, `prestasi`, `nisn`, `nama_santri`, `tanggal_submit`) VALUES
-(1, 'Hapalan 1 hari 3 Juz', '30', NULL, NULL),
+(1, 'Hapalan 1 hari 3 Juz', '123', 'nama saya', '2022-06-23'),
 (2, NULL, 'iajaks', 'sasasa', '2022-06-06'),
 (3, NULL, 'asasa', 'sasas', '2022-06-07'),
-(4, 'saaas', 'sasas', 'sasaa', '2022-06-29');
+(4, 'saaas', 'sasas', 'sasaa', '2022-06-29'),
+(6, 'asasaas', 'dssaa', 'asaaa', '2022-06-17');
 
 -- --------------------------------------------------------
 
@@ -82,15 +101,18 @@ INSERT INTO `dm_prestasi` (`id_prestasi`, `prestasi`, `nisn`, `nama_santri`, `ta
 CREATE TABLE `dm_santri` (
   `id_santri` int(11) NOT NULL,
   `nisn` varchar(15) NOT NULL,
+  `tanggal_lahir` date DEFAULT NULL,
   `nama_santri` varchar(50) DEFAULT NULL,
   `kelas` int(11) DEFAULT NULL,
   `jenis_kelamin` varchar(1) DEFAULT NULL,
-  `agama` varchar(1) DEFAULT NULL,
+  `agama` varchar(10) DEFAULT NULL,
   `alamat` varchar(255) DEFAULT NULL,
   `nama_ayah` varchar(50) DEFAULT NULL,
+  `tanggal_lahir_ayah` date DEFAULT NULL,
   `pekerjaan_ayah` varchar(30) DEFAULT NULL,
   `no_hp_ayah` varchar(13) DEFAULT NULL,
   `nama_ibu` varchar(50) DEFAULT NULL,
+  `tanggal_lahir_ibu` date DEFAULT NULL,
   `pekerjaan_ibu` varchar(30) DEFAULT NULL,
   `no_hp_ibu` varchar(13) DEFAULT NULL,
   `alamat_orangtua` varchar(255) DEFAULT NULL,
@@ -103,8 +125,12 @@ CREATE TABLE `dm_santri` (
 -- Dumping data for table `dm_santri`
 --
 
-INSERT INTO `dm_santri` (`id_santri`, `nisn`, `nama_santri`, `kelas`, `jenis_kelamin`, `agama`, `alamat`, `nama_ayah`, `pekerjaan_ayah`, `no_hp_ayah`, `nama_ibu`, `pekerjaan_ibu`, `no_hp_ibu`, `alamat_orangtua`, `nama_wali_santri`, `alamat_wali_santri`, `no_hp_wali_santri`) VALUES
-(1, '123', NULL, 1, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `dm_santri` (`id_santri`, `nisn`, `tanggal_lahir`, `nama_santri`, `kelas`, `jenis_kelamin`, `agama`, `alamat`, `nama_ayah`, `tanggal_lahir_ayah`, `pekerjaan_ayah`, `no_hp_ayah`, `nama_ibu`, `tanggal_lahir_ibu`, `pekerjaan_ibu`, `no_hp_ibu`, `alamat_orangtua`, `nama_wali_santri`, `alamat_wali_santri`, `no_hp_wali_santri`) VALUES
+(1, '123', '2022-06-29', 'Nama santri', 1, '1', 'I', 'sasa', 'sasas', '2022-06-15', 'sasas', 'sasa', 'asasa', '2022-06-29', 'asas', 'sasa', 'sasa', 'sasa', 'asasa', 'asas'),
+(2, '425242', '2022-06-23', 'Nama saya', 1, 'P', 'Islam', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'NAMA AYAH', '0000-00-00', 'hakahskash', '085893324274', 'NAMA IBU', '2022-06-22', 'PGBBKH', '085893324274', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'KJNJKNK', 'HHIJINI808', '085893324274'),
+(3, '456', '2022-06-23', 'Nama saya', 1, 'P', 'Islam', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'NAMA AYAH', '0000-00-00', 'IUIUUYGY', '085893324274', 'NAMA IBU', '2022-06-22', 'PGBBKH', '085893324274', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'KJNJKNK', 'HHIJINI808', '085893324274'),
+(4, '456', '2022-06-23', 'Nama saya', 1, 'P', 'Islam', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'NAMA AYAH', '0000-00-00', 'IUIUUYGY', '085893324274', 'NAMA IBU', '2022-06-22', 'PGBBKH', '085893324274', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'KJNJKNK', 'HHIJINI808', '085893324274'),
+(5, '', '2022-06-23', '', 1, 'P', 'Islam', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'NAMA AYAH', '0000-00-00', 'IUIUUYGY', '085893324274', 'NAMA IBU', '2022-06-22', 'PGBBKH', '085893324274', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'KJNJKNK', 'HHIJINI808', '085893324274');
 
 -- --------------------------------------------------------
 
@@ -115,15 +141,18 @@ INSERT INTO `dm_santri` (`id_santri`, `nisn`, `nama_santri`, `kelas`, `jenis_kel
 CREATE TABLE `dm_wali_santri` (
   `id_wali_santri` int(11) NOT NULL,
   `id_kelas` int(11) NOT NULL,
-  `nama_wali_santri` varchar(30) DEFAULT NULL
+  `nama_wali_santri` varchar(30) DEFAULT NULL,
+  `nik` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dm_wali_santri`
 --
 
-INSERT INTO `dm_wali_santri` (`id_wali_santri`, `id_kelas`, `nama_wali_santri`) VALUES
-(1, 1, 'Siti S.Pd');
+INSERT INTO `dm_wali_santri` (`id_wali_santri`, `id_kelas`, `nama_wali_santri`, `nik`) VALUES
+(1, 1, 'Siti S.Pd', '123'),
+(2, 66666, 'alimatusyadiah', '66666'),
+(3, 1, 'jajaja', '1234565');
 
 -- --------------------------------------------------------
 
@@ -189,6 +218,7 @@ INSERT INTO `sys_modules` (`module_id`, `navbar_id`, `module_name`, `link`, `src
 CREATE TABLE `sys_navbar` (
   `navbar_id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL DEFAULT 0,
+  `grup_id` int(11) DEFAULT NULL,
   `navbar_icon` varchar(100) DEFAULT NULL,
   `navbar_name` varchar(50) NOT NULL,
   `link` varchar(250) DEFAULT NULL,
@@ -200,24 +230,36 @@ CREATE TABLE `sys_navbar` (
 -- Dumping data for table `sys_navbar`
 --
 
-INSERT INTO `sys_navbar` (`navbar_id`, `parent_id`, `navbar_icon`, `navbar_name`, `link`, `sort`, `active`) VALUES
-(1, 0, '<i class=\"fas fa-tachometer-alt\"></i>', 'Dashboard', NULL, 1, 'Y'),
-(3, 0, '<i class=\"fas fa-user\"></i>', 'Pendaftaran', NULL, 2, 'N'),
-(4, 3, NULL, 'Santri', 'pasien', 0, 'N'),
-(5, 3, NULL, 'Pembatalan Transaksi', NULL, 0, 'N'),
-(6, 3, NULL, 'IGD', NULL, 0, 'N'),
-(7, 0, '<i class=\"fas fa-server\"></i>', 'Master Data', NULL, 3, 'Y'),
-(8, 7, NULL, 'Kelas', 'Kelas', 0, 'Y'),
-(9, 7, NULL, 'Wali Santri', 'WaliSantri', 0, 'Y'),
-(10, 7, NULL, 'Peraturan', 'Peraturan', 0, 'N'),
-(11, 7, NULL, 'Prestasi', 'Prestasi', 0, 'N'),
-(15, 7, NULL, 'Hukuman', 'Hukuman', 0, 'N'),
-(16, 7, NULL, 'Santri', 'Santri', 0, 'Y'),
-(17, 7, NULL, 'Asal Rujukan', NULL, 0, 'N'),
-(18, 0, '<i class=\"fas fa-calendar-alt\"></i>', 'Pelanggaran', 'Pelanggaran', 4, 'Y'),
-(19, 0, '<i class=\"fas fa-medal\"></i>', 'Prestasi', 'Prestasi', 5, 'Y'),
-(20, 0, '<i class=\"fas fa-book-reader\"></i>', 'Hapalan', 'Hapalan', 6, 'Y'),
-(24, 0, '<i class=\"fas fa-book-medical\"></i>', 'Laporan', NULL, 9, 'Y');
+INSERT INTO `sys_navbar` (`navbar_id`, `parent_id`, `grup_id`, `navbar_icon`, `navbar_name`, `link`, `sort`, `active`) VALUES
+(1, 0, 1, '<i class=\"fas fa-tachometer-alt\"></i>', 'Dashboard', 'Dashboard', 1, 'Y'),
+(3, 0, 1, '<i class=\"fas fa-user\"></i>', 'Pendaftaran', NULL, 2, 'N'),
+(4, 3, 1, NULL, 'Santri', 'pasien', 0, 'N'),
+(5, 3, NULL, NULL, 'Pembatalan Transaksi', NULL, 0, 'N'),
+(6, 3, NULL, NULL, 'IGD', NULL, 0, 'N'),
+(7, 0, 1, '<i class=\"fas fa-server\"></i>', 'Master Data', NULL, 3, 'Y'),
+(8, 7, 1, NULL, 'Kelas', 'Kelas', 0, 'Y'),
+(9, 7, 1, NULL, 'Wali Santri', 'WaliSantri', 0, 'Y'),
+(10, 7, 1, NULL, 'Peraturan', 'Peraturan', 0, 'N'),
+(11, 7, 1, NULL, 'Prestasi', 'Prestasi', 0, 'N'),
+(30, 24, 1, '<i class=\"fas fa-book-reader\"></i>', 'Laporan Hapalan', 'LaporanHapalan', 15, 'Y'),
+(16, 7, 1, NULL, 'Santri', 'Santri', 0, 'Y'),
+(17, 7, NULL, NULL, 'Asal Rujukan', NULL, 0, 'N'),
+(28, 24, 1, '<i class=\"fas fa-calendar-alt\"></i>', 'Laporan Pelanggaran', 'LaporanPelanggaran', 13, 'Y'),
+(29, 24, 1, '<i class=\"fas fa-medal\"></i>', 'Laporan Prestasi', 'LaporanPrestasi', 14, 'Y'),
+(20, 0, 1, '<i class=\"fas fa-book-reader\"></i>', 'Hapalan', 'Hapalan', 6, 'Y'),
+(24, 0, 1, '<i class=\"fas fa-book-medical\"></i>', 'Laporan', NULL, 9, 'Y'),
+(28, 0, 2, '<i class=\"fas fa-calendar-alt\"></i>', 'Pelanggaran', 'PelanggaranRoleSantri', 13, 'Y'),
+(29, 0, 2, '<i class=\"fas fa-medal\"></i>', 'Prestasi', 'PrestasiRoleSantri', 14, 'Y'),
+(30, 0, 2, '<i class=\"fas fa-book-reader\"></i>', 'Hapalan', 'HapalanRoleSantri', 15, 'Y'),
+(25, 0, 3, '<i class=\"fas fa-calendar-alt\"></i>', 'Pelanggaran', 'PelanggaranRoleGuru', 13, 'Y'),
+(26, 0, 3, '<i class=\"fas fa-medal\"></i>', 'Prestasi', 'PrestasiRoleGuru', 11, 'Y'),
+(27, 0, 3, '<i class=\"fas fa-book-reader\"></i>', 'Hapalan', 'HapalanRoleGuru', 12, 'Y'),
+(12, 0, 3, '<i class=\"fas fa-tachometer-alt\"></i>', 'Dashboard', 'DashboardRoleGuru', 7, 'Y'),
+(2, 0, 2, '<i class=\"fas fa-tachometer-alt\"></i>', 'Dashboard', 'DashboardRoleSantri', 7, 'Y'),
+(19, 0, 1, '<i class=\"fas fa-medal\"></i>', 'Prestasi', 'Prestasi', 5, 'Y'),
+(15, 7, 1, NULL, 'Hukuman', 'Hukuman', 0, 'N'),
+(31, 0, 1, '<i class=\"fas fa-calendar-alt\"></i>', 'Pelanggaran', 'Pelanggaran', 4, 'Y'),
+(32, 0, 2, '<i class=\"fas fa-user-alt\"></i>', 'Profil', 'ProfilSantri', 8, 'Y');
 
 -- --------------------------------------------------------
 
@@ -273,7 +315,13 @@ CREATE TABLE `sys_users` (
 --
 
 INSERT INTO `sys_users` (`username`, `password`, `session_id`, `active`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', NULL, 'Y');
+('admin', '21232f297a57a5a743894a0e4a801fc3', '1', 'Y'),
+('425242', '21232f297a57a5a743894a0e4a801fc3', '2', 'Y'),
+('123', '21232f297a57a5a743894a0e4a801fc3', '3', 'Y'),
+('456', '202cb962ac59075b964b07152d234b70', NULL, 'Y'),
+('', '202cb962ac59075b964b07152d234b70', '2', 'Y'),
+('66666', '202cb962ac59075b964b07152d234b70', '3', 'Y'),
+('1234565', '202cb962ac59075b964b07152d234b70', '3', 'Y');
 
 -- --------------------------------------------------------
 
@@ -282,6 +330,10 @@ INSERT INTO `sys_users` (`username`, `password`, `session_id`, `active`) VALUES
 -- (See below for the actual view)
 --
 CREATE TABLE `trans_pelanggaran_vd` (
+`hukuman` varchar(50)
+,`pelanggaran` varchar(50)
+,`id_kelas` int(11)
+,`nisn` varchar(16)
 );
 
 -- --------------------------------------------------------
@@ -339,10 +391,10 @@ ALTER TABLE `dm_hapalan`
   ADD PRIMARY KEY (`id_hapalan`);
 
 --
--- Indexes for table `dm_hukuman`
+-- Indexes for table `dm_pelanggaran`
 --
-ALTER TABLE `dm_hukuman`
-  ADD PRIMARY KEY (`id_hukuman`);
+ALTER TABLE `dm_pelanggaran`
+  ADD PRIMARY KEY (`id_pelanggaran`);
 
 --
 -- Indexes for table `dm_prestasi`
@@ -388,31 +440,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `dm_hapalan`
 --
 ALTER TABLE `dm_hapalan`
-  MODIFY `id_hapalan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_hapalan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `dm_hukuman`
+-- AUTO_INCREMENT for table `dm_pelanggaran`
 --
-ALTER TABLE `dm_hukuman`
-  MODIFY `id_hukuman` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `dm_pelanggaran`
+  MODIFY `id_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `dm_prestasi`
 --
 ALTER TABLE `dm_prestasi`
-  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `dm_santri`
 --
 ALTER TABLE `dm_santri`
-  MODIFY `id_santri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_santri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `dm_wali_santri`
 --
 ALTER TABLE `dm_wali_santri`
-  MODIFY `id_wali_santri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_wali_santri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kelas`
