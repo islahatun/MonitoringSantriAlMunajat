@@ -24,7 +24,7 @@
     </nav>
     <!-- Navbar End -->
 
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="<?= base_url('assets/images/navigasi/1.jpeg'); ?>" class="d-block w-100" height="500">
@@ -36,11 +36,11 @@
           <img src="<?= base_url('assets/images/navigasi/1.jpeg'); ?>" class="d-block w-100" height="500">
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Carousel end -->
 
     <!-- navigasi -->
-    <nav>
+    <!-- <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Sejarah Pondok Pesantren</a>
         <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Visi Misi Pondok Pesantren</a>
@@ -89,32 +89,26 @@
                   <div class="col-12">
                     <button type="submit" class="btn btn-primary btn-block">Log In</button>
                   </div>
-                  <!-- /.col -->
-                </div>
+                  /.col -->
+    <!-- </div>
               </form>
             </div>
           </div>
 
         </div>
-      </div>
-      <!-- navigasi end -->
+      </div> -->
+    <!-- navigasi end -->
 
 
-    </div>
+  </div>
 
 
 
 
 
-    <!-- <div class="login-box">
-    <div class="login-logo" class="login-page" style="min-height: 496.781px;">
-      <p>
-        <img src="<?= base_url('assets/theme/img/logoIDI.png'); ?>" alt="IDI" class="brand-image img-circle elevation-3 w-25">
-      </p>
-      <a href="<?= base_url(); ?>"><b>Praktek dr. Ricky</b></a>
-    </div> -->
+  <div class="login-box m-auto mt-4">
     <!-- /.login-logo -->
-    <!-- <div class="card">
+    <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Login Form</p>
 
@@ -138,24 +132,24 @@
           <div class="row">
             <div class="col-12">
               <button type="submit" class="btn btn-primary btn-block">Log In</button>
-            </div> -->
-    <!-- /.col -->
-    <!-- </div>
+            </div>
+            <!-- /.col -->
+          </div>
         </form>
-      </div> -->
-    <!-- /.login-card-body -->
-    <!-- </div>
-  </div> -->
-    <!-- /.login-box -->
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  <!-- /.login-box -->
 
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-    <!-- overlayScrollbars -->
-    <script src="<?= base_url('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js'); ?>"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url('assets/theme/js/adminlte.min.js'); ?>"></script>
-    <!-- JS -->
-    <script src="<?= base_url('assets/js/js.js'); ?>"></script>
+  <!-- Bootstrap 4 -->
+  <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+  <!-- overlayScrollbars -->
+  <script src="<?= base_url('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js'); ?>"></script>
+  <!-- AdminLTE App -->
+  <script src="<?= base_url('assets/theme/js/adminlte.min.js'); ?>"></script>
+  <!-- JS -->
+  <script src="<?= base_url('assets/js/js.js'); ?>"></script>
 
 </body>
 
