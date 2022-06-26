@@ -131,7 +131,7 @@
           cache: false,
           success: function(data, textStatus, jqXHR) {
             debugger
-            var table = $('#tpoliklinik').DataTable();
+            var table = $('#tjo').DataTable();
             table.ajax.reload();
             toastr.success('Data berhasil dishapus.');
           },
