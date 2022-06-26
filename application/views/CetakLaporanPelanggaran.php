@@ -27,20 +27,20 @@
     <br>
     <center>
         <table border="1" CELLSPACING="0" paddingspacing="10">
-            <thead>
-                <tr>
-                    <th class="col-md-1">No</th>
-                    <th class="col-md-1 text-center">NISN</th>
-                    <th class="col-md-2 text-center">Nama Santri</th>
-                    <th class="col-md-1 text-center">Pelanggaran</th>
-                    <th class="col-md-2 text-center">Hukuman</th>
-                    <!-- <th class="col-md-2 text-center">Nama Pencatat</th> -->
-                    <th class="col-md-2 text-center">Tanggal</th>
-                    <!-- <th class="col-md-1 text-center">Aksi</th> -->
-                </tr>
-            </thead>
+            <!-- <thead> -->
+            <tr>
+                <th class="col-md-1">No</th>
+                <th class="col-md-1 text-center">NISN</th>
+                <th class="col-md-2 text-center">Nama Santri</th>
+                <th class="col-md-1 text-center">Pelanggaran</th>
+                <th class="col-md-2 text-center">Hukuman</th>
+                <!-- <th class="col-md-2 text-center">Nama Pencatat</th> -->
+                <th class="col-md-2 text-center">Tanggal</th>
+                <!-- <th class="col-md-1 text-center">Aksi</th> -->
+            </tr>
+            <!-- </thead>
             <tbody>
-            </tbody>
+            </tbody> -->
         </table>
         <?php
         $i = 1;
@@ -57,7 +57,7 @@
         <?php
             $i++;
         endforeach ?>
-        </tbody>
+        <!-- </tbody> -->
         </table>
     </center>
 </body>

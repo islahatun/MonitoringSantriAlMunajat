@@ -27,32 +27,32 @@
     <br>
     <center>
         <table border="1" CELLSPACING="0" paddingspacing="10">
-            <thead>
+            <!-- <thead> -->
+            <tr>
+                <th class="col-md-1">No</th>
+                <th class="col-md-1 text-center">NISN</th>
+                <th class="col-md-2 text-center">Nama Santri</th>
+                <th class="col-md-2 text-center">Prestasi</th>
+                <th class="col-md-2 text-center">Tanggal</th>
+                <!-- <th class="col-md-1 text-center">Aksi</th> -->
+            </tr>
+            <!-- </thead>
+            <tbody> -->
+            <?php
+            $i = 1;
+            // $list = $this->MMasterBarang->datalist();
+            foreach ($list as $l) : ?>
                 <tr>
-                    <th class="col-md-1">No</th>
-                    <th class="col-md-1 text-center">NISN</th>
-                    <th class="col-md-2 text-center">Nama Santri</th>
-                    <th class="col-md-2 text-center">Prestasi</th>
-                    <th class="col-md-2 text-center">Tanggal</th>
-                    <!-- <th class="col-md-1 text-center">Aksi</th> -->
+                    <td><?= $i ?></td>
+                    <td><?= $l->nisn ?></td>
+                    <td><?= $l->nama_santri ?></td>
+                    <td><?= $l->prestasi ?></td>
+                    <td><?= $l->tanggal_submit ?></td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php
-                $i = 1;
-                // $list = $this->MMasterBarang->datalist();
-                foreach ($list as $l) : ?>
-                    <tr>
-                        <td><?= $i ?></td>
-                        <td><?= $l->nisn ?></td>
-                        <td><?= $l->nama_santri ?></td>
-                        <td><?= $l->prestasi ?></td>
-                        <td><?= $l->tanggal_submit ?></td>
-                    </tr>
-                <?php
-                    $i++;
-                endforeach ?>
-            </tbody>
+            <?php
+                $i++;
+            endforeach ?>
+            <!-- </tbody> -->
         </table>
     </center>
 </body>
