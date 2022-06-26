@@ -46,7 +46,7 @@
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Nama Wali Santri</th>
+                                        <th>Nama Wali Kelas</th>
                                         <th class="col-md-1 text-center">Kelas</th>
                                         <th class="col-md-2 text-center">Aksi</th>
                                     </tr>

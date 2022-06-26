@@ -17,6 +17,7 @@
                 </td>
                 <td style="text-align: center;">
                     <p>PESANTREN AL-MUNAJAT</p>
+                    <p>KP.Kepuh ds.Cikoneng Kec.Mandalawangi Pandeglang</p>
                 </td>
             </tr>
         </table>

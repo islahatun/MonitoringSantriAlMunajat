@@ -107,12 +107,12 @@
     var vid_kelas = $(this).attr("vid_kelas");
 
     if (!vid_kelas) {
-      toastr.error('Data gagal disimpan.');
+      toastr.error('Data gagal diHapu.');
       return
     }
 
     var value = {
-      poliklinik_id: vpoliklinik_id
+      id_kelas: vid_kelas
     };
 
     Swal.fire({
@@ -133,10 +133,10 @@
             debugger
             var table = $('#tpoliklinik').DataTable();
             table.ajax.reload();
-            toastr.success('Data berhasil disimpan.');
+            toastr.success('Data berhasil dishapus.');
           },
           error: function(jqXHR, textStatus, errorThrown) {
-            toastr.error('Data gagal disimpan.');
+            toastr.error('Data gagal dihapus.');
           }
         });
       }

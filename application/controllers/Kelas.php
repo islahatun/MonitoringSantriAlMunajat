@@ -35,7 +35,7 @@ class Kelas extends CI_Controller
 				'btn_action'            => "<a href='" . base_url('Kelas/update/' . $kelas->id_kelas) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
-											<button type='button' id='btn_kleas_del' vid_kelas=" . $kelas->id_kelas . " class='btn btn-sm btn-outline-danger'> 
+											<button type='button' id='btn_kelas_del' vid_kelas=" . $kelas->id_kelas . " class='btn btn-sm btn-outline-danger'> 
 												<i class='fas fa-trash-alt'></i>
 											</button>"
 			);
@@ -88,6 +88,6 @@ class Kelas extends CI_Controller
 
 
 		$this->db->where('id_kelas', $this->input->post('id_kelas'));
-		$this->db->delete("dm_kelas");
+		$this->db->delete("kelas");
 	}
 }

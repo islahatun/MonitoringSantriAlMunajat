@@ -21,7 +21,7 @@ class LaporanPrestasi extends CI_Controller
     public function cetak()
     {
         $data['list'] = $this->MLaporanPrestasi->datalist();
-        $this->load->view('LaporanPrestasi', $data);
+        $this->load->view('CetakLaporanPrestasi', $data);
     }
 
     public function datalist()

@@ -13,8 +13,8 @@ class WaliSantri extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Wali Santri';
-        $data['subtitle'] = 'Data Wali Santri';
+        $data['title'] = 'Wali Kelas';
+        $data['subtitle'] = 'Data Wali Kelas';
 
         $data['content_overview'] = $this->load->view('walisantri', $data, true);
         $this->load->view('overview', $data);
@@ -48,9 +48,9 @@ class WaliSantri extends CI_Controller
 
     public function add()
     {
-        $data['title'] = 'Wali Santri';
+        $data['title'] = 'Wali Kelas';
 
-        $data['subtitle'] = 'Tambah Data Wali Santri';
+        $data['subtitle'] = 'Tambah Data Wali Kelas';
         $data['daftarKelas'] = $this->MKelas->datalist();
 
         $data['content_overview'] = $this->load->view('walisantri/formadd', $data, true);
@@ -59,9 +59,9 @@ class WaliSantri extends CI_Controller
 
     public function update($id)
     {
-        $data['title'] = 'Wali Santri';
+        $data['title'] = 'Wali Kelas';
 
-        $data['subtitle'] = 'Tambah Data Wali Santri';
+        $data['subtitle'] = 'Tambah Data Wali Kelas';
         $data["ao"] = $this->MWaliSantri->getById($id);
 
         $data['content_overview'] = $this->load->view('walisantri/formupdate', $data, true);

@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Wali Santri</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Wali Kelas</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control form-control-sm" id="nama_wali_santri" placeholder="Nama Wali Santri">
                                     </div>

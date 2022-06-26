@@ -51,6 +51,6 @@ class LaporanPelanggaran extends CI_Controller
 	public function cetak()
 	{
 		$data['list'] = $this->MLaporanPelanggaran->datalist();
-		$data['content_overview'] = $this->load->view('LaporanPelanggaran', $data);
+		$data['content_overview'] = $this->load->view('CetakLaporanPelanggaran', $data);
 	}
 }
