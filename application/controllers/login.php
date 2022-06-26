@@ -46,7 +46,7 @@ class Login extends CI_Controller
 			$this->session->set_userdata($data_session);
 			switch ($user['session_id']) {
 				case 1;
-					redirect(base_url());
+					redirect(base_url('Dashboard'));
 					break;
 				case 2;
 					redirect(base_url('DashboardRoleSantri'));
