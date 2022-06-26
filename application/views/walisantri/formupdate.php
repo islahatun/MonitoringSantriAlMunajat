@@ -89,12 +89,14 @@
         PatchURL = _baseurl.concat('/WaliSantri/updateSave');
 
         var vnama_wali_santri = $("#nama_wali_santri").val();
-        var vid = $("#id").val();
+        var vid_wali_santri = $("#id_wali_santri").val();
         var vnik = $("#nik").val();
+        var vid_kelas = $("#id_kelas").val();
 
         var value = {
             nama_wali_santri: vnama_wali_santri,
-            id: vid,
+            id_wali_santri: vid_wali_santri,
+            id_kelas: vid_kelas,
             nik: vnik
         };
 

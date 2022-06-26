@@ -102,6 +102,6 @@ class WaliSantri extends CI_Controller
     {
 
         $this->db->where('id_wali_santri', $this->input->post('id_wali_santri'));
-        $this->db->update("dm_wali_santri");
+        $this->db->delete("dm_wali_santri");
     }
 }
