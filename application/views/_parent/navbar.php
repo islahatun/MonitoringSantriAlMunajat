@@ -6,6 +6,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
+
+    <center>PONDOK PESANTREN MODERN AL-MUNAJAT</center>
+
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -14,7 +18,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="<?= base_url('login/logout'); ?>"  class="nav-link" role="button">
+        <a href="<?= base_url('login/logout'); ?>" class="nav-link" role="button">
           <i class="fas fa-sign-out-alt"></i>
         </a>
       </li>
