@@ -24,4 +24,14 @@ class MDashboard extends CI_Model
     {
         return $this->db->get_where("dm_diagnosa", ["diagnosa_id" => $id])->row();
     }
+    public function pengurus()
+    {
+        $this->db->select('*');
+        $this->db->from("dm_pengurus");
+        // $this->db->where("status", 1);
+        $this->db->order_by("jabatan", 'ASC');
+
+        $finalResponse =  $this->db->get()->result();
+        return $finalResponse;
+    }
 }

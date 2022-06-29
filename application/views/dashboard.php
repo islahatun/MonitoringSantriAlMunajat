@@ -1,3 +1,12 @@
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?= base_url('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'); ?>">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="<?= base_url('assets/plugins/toastr/toastr.min.css'); ?>">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css'); ?>">
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="min-height: 290px;">
     <!-- Content Header (Page header) -->
@@ -91,6 +100,7 @@
             <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Visi Misi Pondok Pesantren</a>
             <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Struktur Organisasi</a>
             <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-table" role="tab" aria-controls="nav-table" aria-selected="false">Kegiatan Harian</a>
+            <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-pengurus" role="tab" aria-controls="nav-pengurus" aria-selected="false">Kepengurusan</a>
           </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -208,7 +218,21 @@
               </table>
             </center>
           </div>
-
+          <div class="tab-pane fade" id="nav-pengurus" role="tabpanel" aria-labelledby="nav-pengurus-tab">
+            <br>
+            <table id="tjo" class="table w-100 table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th class="col-md-1">No</th>
+                  <th>Nama Pengurus</th>
+                  <th>Jabatan</th>
+                  <!-- <th class="col-md-2 text-center">Aksi</th> -->
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <!-- navigasi end -->
@@ -218,3 +242,98 @@
   <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  <script>
+    $(document).ready(function() {
+      //debugger
+      PatchURL = _url.concat('/pengurus');
+      $('#tjo').DataTable({
+        //"order": [2, "asc", 1, "asc"], //Initial no order.
+        "destroy": true,
+
+        ajax: {
+          type: "GET",
+          url: PatchURL,
+          dataSrc: ""
+        },
+        "columns": [{
+            "data": "nomor",
+            className: "align-middle text-center small"
+          },
+          {
+            "data": "nama_pengurus",
+            className: "align-middle small"
+          },
+          {
+            "data": "jabatan",
+            className: "align-middle small"
+          },
+          // {
+          //   "data": "btn_action",
+          //   className: "align-middle text-center small"
+          // }
+        ]
+      });
+    });
+
+
+
+    $(document).on("click", "#btn_Pengurus_del", function() {
+      //debugger
+      var vid_pengurus = $(this).attr("vid_pengurus");
+
+      if (!vid_pengurus) {
+        toastr.error('Data gagal diHapu.');
+        return
+      }
+
+      var value = {
+        id_pengurus: vid_pengurus
+      };
+
+      Swal.fire({
+        title: 'Apakah anda yakin.?',
+        text: "Data yang dihapus tidak dapat dikembalikan!",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            type: "POST",
+            url: _url.concat('/delete'),
+            data: value,
+            cache: false,
+            success: function(data, textStatus, jqXHR) {
+              debugger
+              var table = $('#tjo').DataTable();
+              table.ajax.reload();
+              toastr.success('Data berhasil dishapus.');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              toastr.error('Data gagal dihapus.');
+            }
+          });
+        }
+      })
+    });
+  </script>
+
+  <!-- SweetAlert2 -->
+  <script src="<?= base_url('assets/plugins/sweetalert2/sweetalert2.min.js'); ?>"></script>
+  <!-- Toastr -->
+  <script src="<?= base_url('assets/plugins/toastr/toastr.min.js'); ?>"></script>
+  <!-- DataTables  & Plugins -->
+  <script src="<?= base_url('assets/plugins/datatables/jquery.dataTables.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/jszip/jszip.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/pdfmake/pdfmake.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/pdfmake/vfs_fonts.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/datatables-buttons/js/buttons.html5.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/datatables-buttons/js/buttons.print.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/plugins/datatables-buttons/js/buttons.colVis.min.js'); ?>"></script>
