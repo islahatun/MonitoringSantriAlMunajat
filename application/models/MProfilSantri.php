@@ -15,8 +15,8 @@ class MProfilSantri extends CI_Model
         $this->db->select('*,kelas.nama_kelas,kelas.id_kelas');
         $this->db->from("dm_santri");
         $this->db->where("nisn", $username);
-        $this->db->join('kelas', 'kelas.id_kelas = dm_santri.kelas');
-        $this->db->order_by("nama_kelas", 'ASC');
+        $this->db->join('kelas', 'kelas.id_kelas = dm_santri.kelas', 'left');
+        // $this->db->order_by("nama_kelas", 'ASC');
 
         $finalResponse =  $this->db->get_where()->row();
         return $finalResponse;

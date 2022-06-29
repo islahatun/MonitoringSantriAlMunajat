@@ -13,10 +13,8 @@ class ProfilSantri extends CI_Controller
 	{
 		$data['title'] = 'Profil Santri';
 		$data['subtitle'] = 'Data Profil Santri';
-
-
-
 		$data['ao'] =  $this->MProfilSantri->datalist();
+
 
 		$data['content_overview'] = $this->load->view('ProfilSantri', $data, true);
 		$this->load->view('overview', $data);

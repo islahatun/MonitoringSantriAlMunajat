@@ -67,7 +67,7 @@
           <div class="card">
             <div class="card-body login-card-body">
               <p class="login-box-msg">Login Form</p>
-
+              <?= $this->session->flashdata('error_login') ?>
               <form method="post" action="<?= base_url('login/login'); ?>">
                 <div class="input-group mb-3">
                   <input type="text" name="username" class="form-control" placeholder="Username">
