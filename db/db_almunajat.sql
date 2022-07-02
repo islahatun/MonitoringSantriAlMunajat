@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2022 at 03:46 AM
+-- Generation Time: Jul 02, 2022 at 08:43 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -65,7 +65,27 @@ CREATE TABLE `dm_pelanggaran` (
 
 INSERT INTO `dm_pelanggaran` (`id_pelanggaran`, `nisn`, `nama_santri`, `pelanggaran`, `hukuman`, `tanggal_submit`) VALUES
 (1, '425242', 'Satria', 'Pelanggaran apa aja', 'Hukuman', '2022-06-17'),
-(3, 'hajkahassa', 'ashkajshsaa', 'ashlaasksa', 'aslasjasass', '2022-06-17');
+(3, 'hajkahassa', 'ashkajshsaa', 'ashlaasksa', 'aslasjasass', '2022-06-17'),
+(4, '4321', NULL, 'saa', 'asas', '2022-07-02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dm_pengurus`
+--
+
+CREATE TABLE `dm_pengurus` (
+  `id_pengurus` int(11) NOT NULL,
+  `nama_pengurus` varchar(50) DEFAULT NULL,
+  `jabatan` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dm_pengurus`
+--
+
+INSERT INTO `dm_pengurus` (`id_pengurus`, `nama_pengurus`, `jabatan`) VALUES
+(2, 'Siti', 'Sekben');
 
 -- --------------------------------------------------------
 
@@ -90,7 +110,9 @@ INSERT INTO `dm_prestasi` (`id_prestasi`, `prestasi`, `nisn`, `nama_santri`, `ta
 (2, NULL, 'iajaks', 'sasasa', '2022-06-06'),
 (3, NULL, 'asasa', 'sasas', '2022-06-07'),
 (4, 'saaas', 'sasas', 'sasaa', '2022-06-29'),
-(6, 'asasaas', 'dssaa', 'asaaa', '2022-06-17');
+(6, 'asasaas', 'dssaa', 'asaaa', '2022-06-17'),
+(7, 'asas', 'sasa', NULL, '2022-07-02'),
+(8, 'sasaaaas', '4321', NULL, '2022-07-02');
 
 -- --------------------------------------------------------
 
@@ -130,7 +152,9 @@ INSERT INTO `dm_santri` (`id_santri`, `nisn`, `tanggal_lahir`, `nama_santri`, `k
 (2, '425242', '2022-06-23', 'Nama saya', 1, 'P', 'Islam', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'NAMA AYAH', '0000-00-00', 'hakahskash', '085893324274', 'NAMA IBU', '2022-06-22', 'PGBBKH', '085893324274', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'KJNJKNK', 'HHIJINI808', '085893324274'),
 (3, '456', '2022-06-23', 'Nama saya', 1, 'P', 'Islam', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'NAMA AYAH', '0000-00-00', 'IUIUUYGY', '085893324274', 'NAMA IBU', '2022-06-22', 'PGBBKH', '085893324274', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'KJNJKNK', 'HHIJINI808', '085893324274'),
 (4, '456', '2022-06-23', 'Nama saya', 1, 'P', 'Islam', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'NAMA AYAH', '0000-00-00', 'IUIUUYGY', '085893324274', 'NAMA IBU', '2022-06-22', 'PGBBKH', '085893324274', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'KJNJKNK', 'HHIJINI808', '085893324274'),
-(5, '', '2022-06-23', '', 1, 'P', 'Islam', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'NAMA AYAH', '0000-00-00', 'IUIUUYGY', '085893324274', 'NAMA IBU', '2022-06-22', 'PGBBKH', '085893324274', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'KJNJKNK', 'HHIJINI808', '085893324274');
+(5, '', '2022-06-23', '', 1, 'P', 'Islam', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'NAMA AYAH', '0000-00-00', 'IUIUUYGY', '085893324274', 'NAMA IBU', '2022-06-22', 'PGBBKH', '085893324274', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'KJNJKNK', 'HHIJINI808', '085893324274'),
+(6, '4321', '2022-06-28', 'gahsgash', 3, 'P', 'Islam', 'SAAA', 'ASASA', '2022-06-30', 'ASASA', 'ASAAS', 'ASAS', '2022-06-21', 'SASAA', 'ASAS', 'AASA', 'ASAS', 'ASASA', 'SASAA'),
+(7, '12321211', '0000-00-00', 'sasaasa', 1, '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -150,9 +174,10 @@ CREATE TABLE `dm_wali_santri` (
 --
 
 INSERT INTO `dm_wali_santri` (`id_wali_santri`, `id_kelas`, `nama_wali_santri`, `nik`) VALUES
-(1, 1, 'Siti S.Pd', '123'),
+(1, 1, 'Siti S.Pd', '123333'),
 (2, 66666, 'alimatusyadiah', '66666'),
-(3, 1, 'jajaja', '1234565');
+(3, 1, 'jajaja', '1234565'),
+(4, 3, 'asasassa', '21212');
 
 -- --------------------------------------------------------
 
@@ -170,7 +195,7 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id_kelas`, `nama_kelas`) VALUES
-(1, '1-A Kebangsaan');
+(3, '1-ass');
 
 -- --------------------------------------------------------
 
@@ -259,7 +284,10 @@ INSERT INTO `sys_navbar` (`navbar_id`, `parent_id`, `grup_id`, `navbar_icon`, `n
 (19, 0, 1, '<i class=\"fas fa-medal\"></i>', 'Prestasi', 'Prestasi', 5, 'Y'),
 (15, 7, 1, NULL, 'Hukuman', 'Hukuman', 0, 'N'),
 (31, 0, 1, '<i class=\"fas fa-calendar-alt\"></i>', 'Pelanggaran', 'Pelanggaran', 4, 'Y'),
-(32, 0, 2, '<i class=\"fas fa-user-alt\"></i>', 'Profil', 'ProfilSantri', 8, 'Y');
+(32, 0, 2, '<i class=\"fas fa-user-alt\"></i>', 'Profil', 'ProfilSantri', 8, 'Y'),
+(33, 0, 1, '<i class=\"fas fa-users\"></i>', 'Pengurus', 'Pengurus', 16, 'Y'),
+(34, 0, 1, '<i class=\"fas fa-envelope\"></i>', 'Kritik & Saran', 'KritikSaranRoleAdmin', 17, 'Y'),
+(35, 0, 2, '<i class=\"fas fa-envelope\"></i>', 'Kritik & Saran', 'KritikSaranRoleSantri', 17, 'Y');
 
 -- --------------------------------------------------------
 
@@ -321,7 +349,10 @@ INSERT INTO `sys_users` (`username`, `password`, `session_id`, `active`) VALUES
 ('456', '202cb962ac59075b964b07152d234b70', NULL, 'Y'),
 ('', '202cb962ac59075b964b07152d234b70', '2', 'Y'),
 ('66666', '202cb962ac59075b964b07152d234b70', '3', 'Y'),
-('1234565', '202cb962ac59075b964b07152d234b70', '3', 'Y');
+('1234565', '202cb962ac59075b964b07152d234b70', '3', 'Y'),
+('21212', '202cb962ac59075b964b07152d234b70', '3', 'Y'),
+('4321', '202cb962ac59075b964b07152d234b70', '2', 'Y'),
+('12321211', '202cb962ac59075b964b07152d234b70', '2', 'Y');
 
 -- --------------------------------------------------------
 
@@ -345,10 +376,18 @@ CREATE TABLE `trans_pelanggaran_vd` (
 CREATE TABLE `trans_pesan` (
   `id_pesan` int(11) NOT NULL,
   `nisn` varchar(16) DEFAULT NULL,
-  `isi_pertanyaan` varchar(255) DEFAULT NULL,
+  `isi_pesan` varchar(255) DEFAULT NULL,
   `isi_jawaban` varchar(255) DEFAULT NULL,
-  `tanggal` date DEFAULT NULL
+  `tanggal` date DEFAULT NULL,
+  `status` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trans_pesan`
+--
+
+INSERT INTO `trans_pesan` (`id_pesan`, `nisn`, `isi_pesan`, `isi_jawaban`, `tanggal`, `status`) VALUES
+(1, '4321', 'Assalamualaikum', 'waaliakumsalam', '2022-07-02', 'Saran');
 
 -- --------------------------------------------------------
 
@@ -395,6 +434,12 @@ ALTER TABLE `dm_hapalan`
 --
 ALTER TABLE `dm_pelanggaran`
   ADD PRIMARY KEY (`id_pelanggaran`);
+
+--
+-- Indexes for table `dm_pengurus`
+--
+ALTER TABLE `dm_pengurus`
+  ADD PRIMARY KEY (`id_pengurus`);
 
 --
 -- Indexes for table `dm_prestasi`
@@ -446,37 +491,43 @@ ALTER TABLE `dm_hapalan`
 -- AUTO_INCREMENT for table `dm_pelanggaran`
 --
 ALTER TABLE `dm_pelanggaran`
-  MODIFY `id_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `dm_pengurus`
+--
+ALTER TABLE `dm_pengurus`
+  MODIFY `id_pengurus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `dm_prestasi`
 --
 ALTER TABLE `dm_prestasi`
-  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `dm_santri`
 --
 ALTER TABLE `dm_santri`
-  MODIFY `id_santri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_santri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `dm_wali_santri`
 --
 ALTER TABLE `dm_wali_santri`
-  MODIFY `id_wali_santri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_wali_santri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `trans_pesan`
 --
 ALTER TABLE `trans_pesan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
