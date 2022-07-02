@@ -12,8 +12,8 @@ class KritikSaranRoleSantri extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Kritik Saran RoleSantri';
-		$data['subtitle'] = 'Data KritikSaranRoleSantri';
+		$data['title'] = 'Kritik Saran Role Santri';
+		$data['subtitle'] = 'Data Kritik Saran';
 
 		$data['content_overview'] = $this->load->view('KritikSaranRoleSantri', $data, true);
 		$this->load->view('overview', $data);
