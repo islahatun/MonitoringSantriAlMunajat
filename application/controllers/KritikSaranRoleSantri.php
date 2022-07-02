@@ -15,7 +15,7 @@ class KritikSaranRoleSantri extends CI_Controller
 		$data['title'] = 'Kritik Saran RoleSantri';
 		$data['subtitle'] = 'Data KritikSaranRoleSantri';
 
-		$data['content_overview'] = $this->load->view('Kritik Saran Role Santri', $data, true);
+		$data['content_overview'] = $this->load->view('KritikSaranRoleSantri', $data, true);
 		$this->load->view('overview', $data);
 	}
 
