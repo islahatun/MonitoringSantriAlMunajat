@@ -35,9 +35,9 @@ class MHapalan extends CI_Model
 
     public function datalistHapalan($id)
     {
-        $this->db->select('*,dm_santri.kelas');
+        $this->db->select('*,dm_santri.kelas,dm_santri.nama_santri');
         $this->db->from("dm_hapalan");
-        $this->db->join("dm_santri","dm_santri.nisn = dm_hapalan.nisn");
+        $this->db->join("dm_santri", "dm_santri.nisn = dm_hapalan.nisn");
         $this->db->where("dm_santri.kelas", $id);
 
         $finalResponse =  $this->db->get_where()->result();
@@ -59,7 +59,7 @@ class MHapalan extends CI_Model
     {
         $this->db->select('*,dm_santri.kelas');
         $this->db->from("dm_hapalan");
-        $this->db->join("dm_santri","dm_santri.nisn = dm_hapalan.nisn");
+        $this->db->join("dm_santri", "dm_santri.nisn = dm_hapalan.nisn");
         $this->db->where("dm_hapalan.id_hapalan", $id);
 
         $finalResponse =  $this->db->get_where()->row();

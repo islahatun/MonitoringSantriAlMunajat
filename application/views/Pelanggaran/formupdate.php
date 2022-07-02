@@ -77,7 +77,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Pelanggaran/listPelanggaran/' . $ao->id_pelanggaran); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('Pelanggaran/listPelanggaran/' . $ao->kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>

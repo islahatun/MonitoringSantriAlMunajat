@@ -12,7 +12,7 @@ class MPelanggaranRoleGuru extends CI_Model
         date_default_timezone_set('Asia/Jakarta');
 
         $username = $this->session->userdata('username');
-        $this->db->select('*');
+        $this->db->select('*,dm_santri.nama_santri');
         $this->db->from("dm_pelanggaran");
         $this->db->join('dm_santri', 'dm_santri.nisn = dm_pelanggaran.nisn');
         $this->db->join('kelas', 'kelas.id_kelas = dm_santri.kelas');

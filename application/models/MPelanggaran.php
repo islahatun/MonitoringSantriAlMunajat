@@ -35,9 +35,9 @@ class MPelanggaran extends CI_Model
 
     public function datalistPelanggaran($id)
     {
-        $this->db->select('dm_pelanggaran.id_pelanggaran,dm_pelanggaran.nisn,dm_pelanggaran.pelanggaran,dm_pelanggaran.nama_santri,dm_pelanggaran.tanggal_submit,dm_pelanggaran.hukuman,dm_santri.kelas');
+        $this->db->select('dm_pelanggaran.id_pelanggaran,dm_pelanggaran.nisn,dm_pelanggaran.pelanggaran,dm_santri.nama_santri,dm_pelanggaran.tanggal_submit,dm_pelanggaran.hukuman,dm_santri.kelas');
         $this->db->from("dm_pelanggaran");
-        $this->db->join("dm_santri","dm_santri.nisn = dm_pelanggaran.nisn");
+        $this->db->join("dm_santri", "dm_santri.nisn = dm_pelanggaran.nisn");
         $this->db->where("dm_santri.kelas", $id);
 
         $finalResponse =  $this->db->get_where()->result();
@@ -59,7 +59,7 @@ class MPelanggaran extends CI_Model
     {
         $this->db->select('dm_pelanggaran.id_pelanggaran,dm_pelanggaran.nisn,dm_pelanggaran.pelanggaran,dm_pelanggaran.nama_santri,dm_pelanggaran.tanggal_submit,dm_pelanggaran.hukuman,dm_santri.kelas');
         $this->db->from("dm_pelanggaran");
-        $this->db->join("dm_santri","dm_santri.nisn = dm_pelanggaran.nisn");
+        $this->db->join("dm_santri", "dm_santri.nisn = dm_pelanggaran.nisn");
         $this->db->where("dm_pelanggaran.id_pelanggaran", $id);
 
         $finalResponse =  $this->db->get_where()->row();
