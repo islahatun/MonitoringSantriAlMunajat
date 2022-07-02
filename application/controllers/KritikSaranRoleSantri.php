@@ -7,6 +7,7 @@ class KritikSaranRoleSantri extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('MFunction');
+		$this->load->model('MLogin');
 		$this->load->model('MKritikSaranRoleSantri');
 	}
 
@@ -30,12 +31,14 @@ class KritikSaranRoleSantri extends CI_Controller
 
 			$rtn[] = array(
 				'nomor'         		=> $i,
-				'id_kelas'         => $kelas->id_kelas,
-				'nama_kelas'       => $kelas->nama_kelas,
-				'btn_action'            => "<a href='" . base_url('Kelas/update/' . $kelas->id_kelas) . "' class='btn btn-sm btn-outline-success'> 
+				'nisn'         => $kelas->nisn,
+				'isi_pesan'       => $kelas->isi_pesan,
+				'isi_jawaban'       => $kelas->isi_jawaban,
+				'status'       => $kelas->status,
+				'btn_action'            => "<a href='" . base_url('Kelas/update/' . $kelas->nisn) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
-											<button type='button' id='btn_kelas_del' vid_kelas=" . $kelas->id_kelas . " class='btn btn-sm btn-outline-danger'> 
+											<button type='button' id='btn_kelas_del' vnisn=" . $kelas->nisn . " class='btn btn-sm btn-outline-danger'> 
 												<i class='fas fa-trash-alt'></i>
 											</button>"
 			);
@@ -47,10 +50,10 @@ class KritikSaranRoleSantri extends CI_Controller
 
 	public function add()
 	{
-		$data['title'] = 'Kelas';
-		$data['subtitle'] = 'Tambah Kelas';
+		$data['title'] = 'Kritik dan Saran';
+		$data['subtitle'] = 'Tambah Kritik dan saran';
 
-		$data['content_overview'] = $this->load->view('kelas/formadd', $data, true);
+		$data['content_overview'] = $this->load->view('KritikSaranRoleSantri/formadd', $data, true);
 		$this->load->view('overview', $data);
 	}
 
@@ -60,34 +63,35 @@ class KritikSaranRoleSantri extends CI_Controller
 		$data['subtitle'] = 'Ubah Kelas';
 		$data["kelas"] = $this->MKritikSaran->getById($id);
 
-		$data['content_overview'] = $this->load->view('kelas/formupdate', $data, true);
+		$data['content_overview'] = $this->load->view('KritikSaranRoleSantri/formupdate', $data, true);
 		$this->load->view('overview', $data);
 	}
 
 	public function save()
 	{
+		$nisn = $this->session->userdata('username');
 		$data = array(
-			'nama_kelas' => $this->input->post('nama_kelas'),
+			'isi_pesan' => $this->input->post('isi_pesan'),
+			'nisn' => $nisn,
+			'status' => $this->input->post('status')
 		);
 
-		$this->db->insert("kelas", $data);
+		$this->db->insert("trans_pesan", $data);
 	}
 
 	function updateSave()
 	{
 		$data = array(
-			'nama_kelas' => $this->input->post('nama_kelas'),
+			'isi_pesan' => $this->input->post('isi_pesan'),
 		);
 
-		$this->db->where('id_kelas', $this->input->post('id_kelas'));
-		$this->db->update("kelas", $data);
+		$this->db->where('id_pesan', $this->input->post('id_pesan'));
+		$this->db->update("trans_pesan", $data);
 	}
 
 	public function delete()
 	{
-
-
-		$this->db->where('id_kelas', $this->input->post('id_kelas'));
-		$this->db->delete("kelas");
+		$this->db->where('id_pesan', $this->input->post('id_pesan'));
+		$this->db->delete("trans_pesan");
 	}
 }

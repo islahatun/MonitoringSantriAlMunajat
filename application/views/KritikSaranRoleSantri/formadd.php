@@ -32,9 +32,9 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="form-group row">
-                  <label for="" class="col-sm-2 col-form-label">Isi Pesan</label>
+                  <label for="" class="col-sm-2 col-form-label-sm">Isi Pesan</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="isi_pesan" placeholder="Isi Pesan">
+                    <textarea type="text" class="form-control form-control-sm" id="isi_pesan" placeholder="Isi Pesan"></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -71,7 +71,7 @@
 <script>
   function saveKelas() {
     //debugger
-    PatchURL = _baseurl.concat('/Kelas/save');
+    PatchURL = _baseurl.concat('/KritikSaranRoleSantri/save');
 
     var visi_pesan = $("#isi_pesan").val();
     var vstatus = $("#status").val();

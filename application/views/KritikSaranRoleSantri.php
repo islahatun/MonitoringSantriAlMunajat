@@ -31,11 +31,11 @@
                 <div class="col-md-6">
                   <h3 class="card-title"><?= $subtitle; ?></h3>
                 </div>
-                <!-- <div class="col-md-6 text-right">
-                  <a href="<?= base_url('Kelas/add'); ?>" class="btn btn-sm btn-info">
-                    <i class="fas fa-plus"></i> Tambah
+                <div class="col-md-6 text-right">
+                  <a href="<?= base_url('KritikSaranRoleSantri/add'); ?>" class="btn btn-sm btn-info">
+                    <i class="fas fa-plus"></i> Masukan Kritik dan Saran
                   </a>
-                </div> -->
+                </div>
               </div>
             </div>
 
@@ -50,7 +50,7 @@
                     <th>Isi Pesan</th>
                     <th>Isi Jawaban</th>
                     <th class="col-md-2 text-center">Status</th>
-                    <th class="col-md-2 text-center">Aksi</th>
+                    <!-- <th class="col-md-2 text-center">Aksi</th> -->
                   </tr>
                 </thead>
                 <tbody>
@@ -107,10 +107,10 @@
           "data": "status",
           className: "align-middle small"
         },
-        {
-          "data": "btn_action",
-          className: "align-middle text-center small"
-        }
+        // {
+        //   "data": "btn_action",
+        //   className: "align-middle text-center small"
+        // }
       ]
     });
   });

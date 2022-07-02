@@ -220,18 +220,25 @@
           </div>
           <div class="tab-pane fade" id="nav-pengurus" role="tabpanel" aria-labelledby="nav-pengurus-tab">
             <br>
-            <table id="tjo" class="table w-100 table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th class="col-md-1">No</th>
-                  <th>Nama Pengurus</th>
-                  <th>Jabatan</th>
-                  <!-- <th class="col-md-2 text-center">Aksi</th> -->
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
+            <div class="row">
+              <div class="col-3"></div>
+              <div class="col-6">
+                <table id="tjo" class="table w-100 table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th class="col-md-1">No</th>
+                      <th>Nama Pengurus</th>
+                      <th>Jabatan</th>
+                      <!-- <th class="col-md-2 text-center">Aksi</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-3"></div>
+            </div>
+
           </div>
         </div>
       </div>
