@@ -72,7 +72,7 @@ class HapalanRoleGuru extends CI_Controller
     {
         $data = array(
             'nisn' => $this->input->post('nisn'),
-            'nama_santri' => $this->input->post('nama_santri'),
+            // 'nama_santri' => $this->input->post('nama_santri'),
             'juz' => $this->input->post('juz'),
             'surah' => $this->input->post('surah'),
             'ayat' => $this->input->post('ayat'),
@@ -87,7 +87,7 @@ class HapalanRoleGuru extends CI_Controller
     {
         $data = array(
             'nisn' => $this->input->post('nisn'),
-            'nama_santri' => $this->input->post('nama_santri'),
+            // 'nama_santri' => $this->input->post('nama_santri'),
             'juz' => $this->input->post('juz'),
             'surah' => $this->input->post('surah'),
             'ayat' => $this->input->post('ayat'),

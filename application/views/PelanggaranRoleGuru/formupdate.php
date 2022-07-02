@@ -44,12 +44,12 @@
                                         <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN" value="<?= $ao->nisn ?>">
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Santri</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri" value="<?= $ao->nama_santri ?>">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Pelanggaran</label>
                                     <div class="col-sm-10">
@@ -103,7 +103,7 @@
 
         var vid_pelanggaran = $("#id_pelanggaran").val();
         var vnisn = $("#nisn").val();
-        var vnama_santri = $("#nama_santri").val();
+        // var vnama_santri = $("#nama_santri").val();
         var vpelanggaran = $("#pelanggaran").val();
         var vhukuman = $("#hukuman").val();
         // var vpencatat = $("#pencatat").val();
@@ -112,7 +112,7 @@
         var value = {
             id_pelanggaran: vid_pelanggaran,
             nisn: vnisn,
-            nama_santri: vnama_santri,
+            // nama_santri: vnama_santri,
             pelanggaran: vpelanggaran,
             hukuman: vhukuman,
             // pencatat: vpencatat,

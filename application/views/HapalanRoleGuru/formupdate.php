@@ -44,12 +44,12 @@
                                         <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN" value="<?= $ao->nisn ?>">
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Santri</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri" value="<?= $ao->nama_santri ?>">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Juz</label>
                                     <div class="col-sm-10">
@@ -102,7 +102,7 @@
         PatchURL = _baseurl.concat('/HapalanRoleGuru/updateSave');
         var vid_hapalan = $("#id_hapalan").val();
         var vnisn = $("#nisn").val();
-        var vnama_santri = $("#nama_santri").val();
+        // var vnama_santri = $("#nama_santri").val();
         var vjuz = $("#juz").val();
         var vsurah = $("#surah").val();
         var vayat = $("#ayat").val();
@@ -111,7 +111,7 @@
         var value = {
             id_hapalan: vid_hapalan,
             nisn: vnisn,
-            nama_santri: vnama_santri,
+            // nama_santri: vnama_santri,
             juz: vjuz,
             surah: vsurah,
             ayat: vayat,

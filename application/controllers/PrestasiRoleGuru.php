@@ -70,7 +70,7 @@ class PrestasiRoleGuru extends CI_Controller
     {
         $data = array(
             'nisn' => $this->input->post('nisn'),
-            'nama_santri' => $this->input->post('nama_santri'),
+            // 'nama_santri' => $this->input->post('nama_santri'),
             'prestasi' => $this->input->post('prestasi'),
             'tanggal_submit' => $this->input->post('tanggal_submit'),
         );
@@ -83,7 +83,7 @@ class PrestasiRoleGuru extends CI_Controller
     {
         $data = array(
             'nisn' => $this->input->post('nisn'),
-            'nama_santri' => $this->input->post('nama_santri'),
+            // 'nama_santri' => $this->input->post('nama_santri'),
             'prestasi' => $this->input->post('prestasi'),
             'tanggal_submit' => $this->input->post('tanggal_submit'),
         );

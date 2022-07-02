@@ -110,7 +110,7 @@ class Pelanggaran extends CI_Controller
     {
         $data = array(
             'nisn' => $this->input->post('nisn'),
-            'nama_santri' => $this->input->post('nama_santri'),
+            // 'nama_santri' => $this->input->post('nama_santri'),
             'hukuman' => $this->input->post('hukuman'),
             'pelanggaran' => $this->input->post('pelanggaran'),
             // 'pencatat' => $this->input->post('pencatat'),
@@ -124,7 +124,7 @@ class Pelanggaran extends CI_Controller
     {
         $data = array(
             'nisn' => $this->input->post('nisn'),
-            'nama_santri' => $this->input->post('nama_santri'),
+            // 'nama_santri' => $this->input->post('nama_santri'),
             'hukuman' => $this->input->post('hukuman'),
             'pelanggaran' => $this->input->post('pelanggaran'),
             // 'pencatat' => $this->input->post('pencatat'),

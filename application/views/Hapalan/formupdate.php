@@ -37,47 +37,47 @@
                         <form id="form_poliklinik" class="form-horizontal">
                             <!-- /.card-header -->
                             <div class="card-body">
-                            <input type="hidden" class="form-control form-control-sm" id="id_hapalan" placeholder="id_hapalan" value="<?=$ao->id_hapalan?>">
+                                <input type="hidden" class="form-control form-control-sm" id="id_hapalan" placeholder="id_hapalan" value="<?= $ao->id_hapalan ?>">
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">NISN</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN" value="<?=$ao->nisn?>">
+                                        <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN" value="<?= $ao->nisn ?>">
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Santri</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri" value="<?=$ao->nama_santri?>">
+                                        <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri" value="<?= $ao->nama_santri ?>">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Juz</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="juz" placeholder="Juz" value="<?=$ao->juz?>">
+                                        <input type="text" class="form-control form-control-sm" id="juz" placeholder="Juz" value="<?= $ao->juz ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Surah</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="surah" placeholder="Surah" value="<?=$ao->surah?>">
+                                        <input type="text" class="form-control form-control-sm" id="surah" placeholder="Surah" value="<?= $ao->surah ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Ayat</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="ayat" placeholder="Ayat" value="<?=$ao->ayat?>">
+                                        <input type="text" class="form-control form-control-sm" id="ayat" placeholder="Ayat" value="<?= $ao->ayat ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Tanggal</label>
                                     <div class="col-sm-10">
-                                        <input type="date" class="form-control form-control-sm" id="tanggal" value="<?=$ao->tanggal?>" placeholder="Tanggal">
+                                        <input type="date" class="form-control form-control-sm" id="tanggal" value="<?= $ao->tanggal ?>" placeholder="Tanggal">
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Hapalan/listHapalan/'.$ao->kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('Hapalan/listHapalan/' . $ao->kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
@@ -102,7 +102,7 @@
         PatchURL = _baseurl.concat('/Hapalan/updateSave');
         var vid_hapalan = $("#id_hapalan").val();
         var vnisn = $("#nisn").val();
-        var vnama_santri = $("#nama_santri").val();
+        // var vnama_santri = $("#nama_santri").val();
         var vjuz = $("#juz").val();
         var vsurah = $("#surah").val();
         var vayat = $("#ayat").val();
@@ -111,7 +111,7 @@
         var value = {
             id_hapalan: vid_hapalan,
             nisn: vnisn,
-            nama_santri: vnama_santri,
+            // nama_santri: vnama_santri,
             juz: vjuz,
             surah: vsurah,
             ayat: vayat,
