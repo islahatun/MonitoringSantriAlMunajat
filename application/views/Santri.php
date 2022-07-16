@@ -107,46 +107,46 @@
 
 
 
-    $(document).on("click", "#btn_id_Santri_del", function() {
-        //debugger
-        var vid_santri = $(this).attr("vid_santri");
+    // $(document).on("click", "#btn_id_Santri_del", function() {
+    //     //debugger
+    //     var vid_santri = $(this).attr("vid_santri");
 
-        if (!vid_santri) {
-            toastr.error('Data gagal disimpan.');
-            return
-        }
+    //     if (!vid_santri) {
+    //         toastr.error('Data gagal disimpan.');
+    //         return
+    //     }
 
-        var value = {
-            id_santri: vid_santri
-        };
+    //     var value = {
+    //         id_santri: vid_santri
+    //     };
 
-        Swal.fire({
-            title: 'Apakah anda yakin.?',
-            text: "Data yang dihapus tidak dapat dikembalikan!",
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "POST",
-                    url: _baseurl.concat('/Santri/delete'),
-                    data: value,
-                    cache: false,
-                    success: function(data, textStatus, jqXHR) {
-                        debugger
-                        var table = $('#ao').DataTable();
-                        table.ajax.reload();
-                        toastr.success('Data berhasil disimpan.');
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        toastr.error('Data gagal disimpan.');
-                    }
-                });
-            }
-        })
-    });
+    //     Swal.fire({
+    //         title: 'Apakah anda yakin.?',
+    //         text: "Data yang dihapus tidak dapat dikembalikan!",
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, delete it!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             $.ajax({
+    //                 type: "POST",
+    //                 url: _baseurl.concat('/Santri/delete'),
+    //                 data: value,
+    //                 cache: false,
+    //                 success: function(data, textStatus, jqXHR) {
+    //                     debugger
+    //                     var table = $('#ao').DataTable();
+    //                     table.ajax.reload();
+    //                     toastr.success('Data berhasil disimpan.');
+    //                 },
+    //                 error: function(jqXHR, textStatus, errorThrown) {
+    //                     toastr.error('Data gagal disimpan.');
+    //                 }
+    //             });
+    //         }
+    //     })
+    // });
 </script>
 <!-- SweetAlert2 -->
 <script src="<?= base_url('assets/plugins/sweetalert2/sweetalert2.min.js'); ?>"></script>

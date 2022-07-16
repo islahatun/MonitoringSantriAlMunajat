@@ -126,7 +126,7 @@
 
 
 
-    $(document).on("click", "#bbtn_id_Santri_del", function() {
+    $(document).on("click", "#btn_Santri_del", function() {
         //debugger
         var vid_santri = $(this).attr("vid_santri");
 
