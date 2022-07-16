@@ -41,24 +41,26 @@
             <!-- </thead>
             <tbody>
             </tbody> -->
+            <?php
+            $i = 1;
+            // $list = $this->MMasterBarang->datalist();
+            foreach ($list as $l) : ?>
+                <tr>
+
+                    <td><?= $i ?></td>
+                    <td><?= $l->nisn ?></td>
+                    <td><?= $l->nama_santri ?></td>
+                    <td><?= $l->pelanggaran ?></td>
+                    <td><?= $l->hukuman ?></td>
+                    <td><?= $l->tanggal_submit ?></td>
+                </tr>
+
+                <!-- </tbody> -->
+            <?php
+                $i++;
+            endforeach ?>
         </table>
-        <?php
-        $i = 1;
-        // $list = $this->MMasterBarang->datalist();
-        foreach ($list as $l) : ?>
-            <tr>
-                <td><?= $i ?></td>
-                <td><?= $l->nisn ?></td>
-                <td><?= $l->nama_santri ?></td>
-                <td><?= $l->pelanggaran ?></td>
-                <td><?= $l->hukuman ?></td>
-                <td><?= $l->tanggal_submit ?></td>
-            </tr>
-        <?php
-            $i++;
-        endforeach ?>
-        <!-- </tbody> -->
-        </table>
+
     </center>
 </body>
 

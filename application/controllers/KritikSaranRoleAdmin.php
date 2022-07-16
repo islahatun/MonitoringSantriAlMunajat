@@ -37,7 +37,7 @@ class KritikSaranRoleAdmin extends CI_Controller
 				'btn_action'            => "<a href='" . base_url('KritikSaranRoleAdmin/update/' . $kelas->id_pesan) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
-											<button type='button' id='btn_kelas_del' vid_pesan=" . $kelas->id_pesan . " class='btn btn-sm btn-outline-danger'> 
+											<button type='button' id='btn_pesan_del' vid_pesan=" . $kelas->id_pesan . " class='btn btn-sm btn-outline-danger'> 
 												<i class='fas fa-trash-alt'></i>
 											</button>"
 			);

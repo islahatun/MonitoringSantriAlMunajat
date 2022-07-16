@@ -117,17 +117,17 @@
 
 
 
-  $(document).on("click", "#btn_kelas_del", function() {
+  $(document).on("click", "#btn_pesan_del", function() {
     //debugger
-    var vid_kelas = $(this).attr("vid_kelas");
+    var vid_pesan = $(this).attr("vid_pesan");
 
-    if (!vid_kelas) {
-      toastr.error('Data gagal diHapu.');
+    if (!vid_pesan) {
+      toastr.error('Data gagal diHapus.');
       return
     }
 
     var value = {
-      id_kelas: vid_kelas
+      id_pesan: vid_pesan
     };
 
     Swal.fire({
