@@ -50,7 +50,7 @@
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
         <div class="mt-2 ml-2">
-          <img src="<?= base_url('assets/images/navigasi/3.jpeg'); ?>" height="200" width="200" style="display:flex|inline-flex">
+          <img src="<?= base_url('assets/images/navigasi/3.0.jpeg'); ?>" height="200" width="200" style="display:flex|inline-flex">
           <p>Pondok Pesanren Al-Munajat Kepuh Mandalawangi di dirikan pada tanggal 2 april 2017 pada hari minggu oleh KH.Adang Jazuly putra Alm.Abah KH.Johan Jazuly.
             Nama Al-Munajat di ambil merupakan hasil permunajatan pendiri dan upaya pengembangan pondok sebelumnya,disamping adanya Amanah dari orang tua beliau yang berpesan jik memungkinkan agar mendirikan pesantren di daerah asal usul orang tuanya.Supaya tidak kehilangan jejak Trah keluarga (Parem Obor),setelah sekian lama melalui permunajatan yang dalam akhirnya KH.Adang Jazuly dan istri ibu HJ.Wiwin Qibtiah mendirikan pesantren di KP.Kepuh ds.Cikoneng Kec.Mandalawangi Pandeglang.Yang kemudian di beri nama”Pondok Pesantren”Al-Munajat Kepuh”</p>
         </div>
