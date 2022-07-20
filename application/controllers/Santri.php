@@ -72,11 +72,11 @@ class Santri extends CI_Controller
                 'tanggal_lahir'    => $ao->tanggal_lahir,
                 'alamat'    => $ao->alamat,
                 'btn_action'         => "<a href='" . base_url('Santri/update/' . $ao->id_santri) . "' class='btn btn-sm btn-outline-success'> 
-                <i class='fas fa-edit'></i>
-            </a>
-            <button type='button' id='btn_santri_del' vid_santri=" . $ao->id_santri . " class='btn btn-sm btn-outline-danger'> 
-                <i class='fas fa-trash-alt'></i>
-            </button>"
+												<i class='fas fa-edit'></i>
+											</a>
+											<button type='button' id='btn_id_santri_del' vid_santri=" . $ao->id_santri . " class='btn btn-sm btn-outline-danger'> 
+												<i class='fas fa-trash-alt'></i>
+											</button>"
             );
             $i++;
         }

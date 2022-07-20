@@ -72,7 +72,7 @@ class Prestasi extends CI_Controller
                 'nama_santri'    => $ao->nama_santri,
                 'prestasi'    => $ao->prestasi,
                 'tanggal_submit'    => $ao->tanggal_submit,
-                'btn_action'         => "<a href='" . base_url('Prestasi/update/' . $ao->id_prestasi) . "' class='btn btn-sm btn-outline-success'> 
+                'btn_action'         => "<a href='" . base_url('Prestasi/update/' . $ao->id_prestasi . '/' . $ao->nisn) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
 											<button type='button' id='btn_id_Prestasi_del' vid_Prestasi=" . $ao->id_prestasi . " class='btn btn-sm btn-outline-danger'> 
@@ -95,12 +95,12 @@ class Prestasi extends CI_Controller
         $this->load->view('overview', $data);
     }
 
-    public function update($id)
+    public function update($id, $nisn)
     {
         $data['title'] = 'Prestasi';
 
         $data['subtitle'] = 'Tambah Data Prestasi';
-        $data["ao"] = $this->MPrestasi->getPrestasiById($id);
+        $data["update"] = $this->MPrestasi->getPrestasiById($id, $nisn);
 
         $data['content_overview'] = $this->load->view('Prestasi/formupdate', $data, true);
         $this->load->view('overview', $data);

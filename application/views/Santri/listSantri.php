@@ -126,7 +126,7 @@
 
 
 
-    $(document).on("click", "#btn_Santri_del", function() {
+    $(document).on("click", "#btn_id_santri_del", function() {
         //debugger
         var vid_santri = $(this).attr("vid_santri");
 
@@ -150,7 +150,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "POST",
-                    url: _baseurl.concat('/Prestasi/delete'),
+                    url: _baseurl.concat('/Santri/delete'),
                     data: value,
                     cache: false,
                     success: function(data, textStatus, jqXHR) {

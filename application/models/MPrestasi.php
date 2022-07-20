@@ -54,12 +54,13 @@ class MPrestasi extends CI_Model
         $finalResponse =  $this->db->get_where()->row();
         return $finalResponse;
     }
-    public function getPrestasiById($id)
+    public function getPrestasiById($id, $nisn)
     {
         $this->db->select('*,dm_santri.nama_santri,dm_santri.kelas');
         $this->db->from("dm_prestasi");
-        $this->db->from("dm_santri", "dm_santri.nisn = dm_prestasi.nisn");
+        $this->db->join("dm_santri", "dm_santri.nisn = dm_prestasi.nisn");
         $this->db->where("id_prestasi", $id);
+        $this->db->where("dm_prestasi.nisn", $nisn);
 
         $finalResponse =  $this->db->get_where()->row();
         return $finalResponse;

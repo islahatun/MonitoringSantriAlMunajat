@@ -37,35 +37,35 @@
                         <form id="form_poliklinik" class="form-horizontal">
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <input type="hidden" value="<?= $ao->id_prestasi ?>" id="id_prestasi">
+                                <input type="hidden" value="<?= $update->id_prestasi ?>" id="id_prestasi">
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">NISN</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN" value="<?= $ao->nisn ?>">
+                                        <input type="text" class="form-control form-control-sm" id="nisn" placeholder="NISN" value="<?= $update->nisn ?>">
                                     </div>
                                 </div>
-                                <!-- <div class="form-group row">
+                                <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Santri</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri" value="<?= $ao->nama_santri ?>">
+                                        <input type="text" class="form-control form-control-sm" id="nama_santri" placeholder="Nama Santri" value="<?= $update->nama_santri ?>">
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Prestasi</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="prestasi" placeholder="Prestasi" value="<?= $ao->prestasi ?>">
+                                        <input type="text" class="form-control form-control-sm" id="prestasi" placeholder="Prestasi" value="<?= $update->prestasi ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Tanggal</label>
                                     <div class="col-sm-10">
-                                        <input type="date" class="form-control form-control-sm" id="tanggal_submit" value="<?= $ao->tanggal_submit ?>" placeholder="Tanggal">
+                                        <input type="date" class="form-control form-control-sm" id="tanggal_submit" value="<?= $update->tanggal_submit ?>" placeholder="Tanggal">
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Prestasi/listPrestasi/' . $ao->kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('Prestasi/listPrestasi/' . $update->kelas); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
