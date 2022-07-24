@@ -32,6 +32,7 @@
                 <th class="col-md-1">No</th>
                 <th class="col-md-1 text-center">NISN</th>
                 <th class="col-md-2 text-center">Nama Santri</th>
+                <th class="col-md-1 text-center">Kelas</th>
                 <th class="col-md-1 text-center">Pelanggaran</th>
                 <th class="col-md-2 text-center">Hukuman</th>
                 <!-- <th class="col-md-2 text-center">Nama Pencatat</th> -->
@@ -50,6 +51,7 @@
                     <td><?= $i ?></td>
                     <td><?= $l->nisn ?></td>
                     <td><?= $l->nama_santri ?></td>
+                    <td><?= $l->nama_kelas ?></td>
                     <td><?= $l->pelanggaran ?></td>
                     <td><?= $l->hukuman ?></td>
                     <td><?= $l->tanggal_submit ?></td>

@@ -12,9 +12,10 @@ class MLaporanPelanggaran extends CI_Model
         date_default_timezone_set('Asia/Jakarta');
         $username = $this->session->userdata('username');
 
-        $this->db->select('*,dm_santri.nama_santri');
+        $this->db->select('*,dm_santri.nama_santri,kelas.nama_kelas');
         $this->db->from("dm_pelanggaran");
         $this->db->join('dm_santri', 'dm_pelanggaran.nisn=dm_santri.nisn');
+        $this->db->join('kelas', 'kelas.id_kelas=dm_santri.kelas');
         $this->db->order_by("kelas", 'ASC');
 
         $finalResponse =  $this->db->get_where()->result();

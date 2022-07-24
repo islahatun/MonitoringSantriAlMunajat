@@ -34,7 +34,7 @@ class LaporanPelanggaran extends CI_Controller
 				'nama_santri'    => $ao->nama_santri,
 				'pelanggaran'    => $ao->pelanggaran,
 				'hukuman'    => $ao->hukuman,
-				// 'pencatat'    => $ao->pencatat,
+				'nama_kelas'         => $ao->nama_kelas,
 				'tanggal_submit'    => $ao->tanggal_submit,
 				// 'btn_action'         => "<a href='" . base_url('LaporanPelanggaran/update/' . $ao->id_pelanggaran) . "' class='btn btn-sm btn-outline-success'> 
 				// 								<i class='fas fa-edit'></i>

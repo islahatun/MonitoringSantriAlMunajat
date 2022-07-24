@@ -38,6 +38,7 @@ class LaporanPrestasi extends CI_Controller
                 'nisn'         => $ao->nisn,
                 'nama_santri'    => $ao->nama_santri,
                 'prestasi'    => $ao->prestasi,
+                'nama_kelas'         => $ao->nama_kelas,
                 'tanggal_submit'    => $ao->tanggal_submit,
                 // 'btn_action'         => "<a href='" . base_url('PrestasiRoleGuru/update/' . $ao->id_prestasi) . "' class='btn btn-sm btn-outline-success'> 
                 // 								<i class='fas fa-edit'></i>

@@ -48,6 +48,7 @@
                                         <th class="col-md-1">No</th>
                                         <th class="col-md-1 text-center">NISN</th>
                                         <th class="col-md-2 text-center">Nama Santri</th>
+                                        <th class="col-md-2 text-center">Kelas</th>
                                         <th class="col-md-1 text-center">juz</th>
                                         <th class="col-md-2 text-center">Surah</th>
                                         <th class="col-md-1 text-center">Ayat</th>
@@ -100,6 +101,10 @@
                 },
                 {
                     "data": "nama_santri",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "nama_kelas",
                     className: "align-middle text-center small"
                 },
                 {

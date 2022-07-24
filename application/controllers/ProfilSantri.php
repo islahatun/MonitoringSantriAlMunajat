@@ -41,7 +41,7 @@ class ProfilSantri extends CI_Controller
 			'alamat_wali_santri' => $this->input->post('alamat_wali_santri'),
 			'no_hp_wali_santri' => $this->input->post('no_hp_wali_santri'),
 			'alamat_orangtua' => $this->input->post('alamat_orang_tua'),
-			'kelas' => $this->input->post('kelas'),
+			// 'kelas' => $this->input->post('kelas'),
 		);
 
 		$this->db->where('id_santri', $this->input->post('id_santri'));

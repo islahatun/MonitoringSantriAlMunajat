@@ -38,6 +38,7 @@ class LaporanHapalan extends CI_Controller
             $rtn[] = array(
                 'nomor'               => $i,
                 'nisn'         => $ao->nisn,
+                'nama_kelas'         => $ao->nama_kelas,
                 'nama_santri'    => $ao->nama_santri,
                 'juz'    => $ao->juz,
                 'surah'    => $ao->surah,

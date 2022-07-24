@@ -55,9 +55,7 @@
                                         <div class="form-group row">
                                             <label for="" class="col-sm-4 col-form-label-sm">Kelas</label>
                                             <div class="col-sm-8">
-                                                <select class="form-control form-control-sm" id="kelas" name="kelas">
-                                                    <option><?= $ao->nama_kelas ?></option>
-                                                </select>
+                                                <input type="text" class="form-control form-control-sm" id="kelas" placeholder="nama kelas" value="<?= $ao->nama_kelas ?>" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -185,12 +183,12 @@
 <script>
     function updateSaveAO() {
         debugger
-        PatchURL = _baseurl.concat('/Santri/updateSave');
+        PatchURL = _url.concat('/updateSave');
 
         var vid_santri = $("#id_santri").val();
         var vnisn = $("#nisn").val();
         var vnama_santri = $("#nama_santri").val();
-        var vkelas = $("#kelas").val();
+        // var vkelas = $("#kelas").val();
         var vjenis_kelamin = $("#jenis_kelamin").val();
         var vagama = $("#agama").val();
         var vtanggal_lahir = $("#tanggal_lahir").val();
@@ -227,7 +225,7 @@
             nama_santri: vnama_santri,
             agama: vagama,
             jenis_kelamin: vjenis_kelamin,
-            kelas: vkelas,
+            // kelas: vkelas,
             tanggal_lahir: vtanggal_lahir
         };
 
